@@ -1,0 +1,16 @@
+---
+title: Hello World!
+format:
+  pdf: default
+jupyter: python3
+execute:
+  debug: true
+---
+
+Hello World!! it config --global user.name "John Doe"
+
+git config --global user.email "johndoe@email.com"
+
+```{python}
+print("Python Works!")
+```

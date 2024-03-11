@@ -1,4 +1,4 @@
-artist_name,title,format,award_month,award_day,award_year,award_type,type
+artist,title,format,award_month,award_day,award_year,award_type,type
 Rickie Lee Jones,Flying Cowboys,Album ,September,18,1997,Gold,Standard
 Rickie Lee Jones,Pirates ,Album,September,30,1981,Gold,Standard
 Rickie Lee Jones,Rickie Lee Jones,Album,May,22,1979,Gold,Standard
@@ -10,7 +10,7 @@ Christopher Cross,Christopher Cross,Album,May,6,1980,Gold,Standard
 Christopher Cross,Another Page,Album,March,29,1993,Gold,Standard
 Christopher Cross,Arthur’s Theme (The Best You Can Do),Single,January,7,1982,Gold,Standard
 Sheena Easton ,"Duets (with Kim Karnes, Dottie West Sheena Easton)",Album,August,27,1997,Platinum,Standard
-Sheena Easton ***,"Duets (with Kim Karnes, Dottie West Sheena Easton)",Album,August,27,1997,Gold,Standard
+Sheena Easton,"Duets (with Kim Karnes, Dottie West Sheena Easton)",Album,August,27,1997,Gold,Standard
 Sheena Easton ,The Lover In Me,Album,April,20,1989,Gold,Standard
 Sheena Easton ,Do You,Album,December,30,1985,Gold,Standard
 Sheena Easton ,A Private Heaven,Album,March,15,1985,Platinum,Standard
@@ -1263,8 +1263,8 @@ Dua Lipa,Sacred to Be Lonely,Single,February,22,2018,Gold,Digital
 Dua Lipa,Break My Heart,Single,October,9,2020,Platinum,Digital
 Dua Lipa,Break My Heart,Single,August,19,2020,Gold,Digital
 Dua Lipa,Be The One,Single,August,17,2020,Gold,Digital
-"Silk City, Dua Lipa","Electricity (feat. Diplo, Mark Ronson)",Single,February,12,2020,Platinum,Digital
-"Silk City, Dua Lipa","Electricity (feat. Diplo, Mark Ronson)",Single,February,12,2020,Gold,Digital
+Dua Lipa,"Electricity (feat. Diplo, Mark Ronson)",Single,February,12,2020,Platinum,Digital
+Dua Lipa,"Electricity (feat. Diplo, Mark Ronson)",Single,February,12,2020,Gold,Digital
 Dua Lipa,New Rules,Single,October,16,2019,5x Platinum,Digital
 Dua Lipa,New Rules,Single,May,31,2019,4x Platinum,Digital
 Dua Lipa,New Rules,Single,July,27,2018,3x Platinum,Digital

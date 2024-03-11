@@ -54,7 +54,7 @@ year,award_category,artist_name,win
 1985,Best New Artist in a Video,Sheila E.,No 
 1985,Best New Artist in a Video,Frankie Goes to Hollywood,No 
 1985,Best New Artist in a Video,Sade,No 
-1985,Best Overall Performance in a Video,Philip Bailey Feat. Phil Collins,Yes 
+1985,Best Overall Performance in a Video,"Philip Bailey, Phil Collins",Yes 
 1985,Best Overall Performance in a Video,David Lee Roth,No
 1985,Best Overall Performance in a Video,USA for Africa,No
 1985,Best Overall Performance in a Video,Bruce Springsteen,No
@@ -138,7 +138,7 @@ year,award_category,artist_name,win
 1986,Best New Artist in a Video,Whitney Houston,No 
 1986,Best New Artist in a Video,Pet Shop Boys,No 
 1986,Best New Artist in a Video,The Hooters,No 
-1986,Best Overall Performance in a Video,David Bowie Feat. Mick Jagger,Yes 
+1986,Best Overall Performance in a Video,"David Bowie, Mick Jagger",Yes 
 1986,Best Overall Performance in a Video,Dire Straits,No 
 1986,Best Overall Performance in a Video,Sting ,No 
 1986,Best Overall Performance in a Video,Bruce Springsteen,No 
@@ -148,7 +148,7 @@ year,award_category,artist_name,win
 1986,Best Special Effects in a Video ,ZZ Top,No 
 1986,Best Special Effects in a Video ,Dire Straits,No 
 1986,Best Special Effects in a Video ,X,No 
-1986,Best Stage Performance in a Video ,Bryan Adams Feat. Tina Turner,Yes 
+1986,Best Stage Performance in a Video ,"Bryan Adams, Tina Turner",Yes 
 1986,Best Stage Performance in a Video ,Huey Lewis and the News,No 
 1986,Best Stage Performance in a Video ,Robert Palmer,No 
 1986,Best Stage Performance in a Video ,Dire Straits,No 
@@ -227,7 +227,7 @@ year,award_category,artist_name,win
 1987,Best Overall Performance in a Video,Madonna,No 
 1987,Best Overall Performance in a Video,U2,No 
 1987,Best Overall Performance in a Video,Janet Jackson ,No 
-1987,Best Overall Performance in a Video,Run-D.M.C. and Aerosmith,No 
+1987,Best Overall Performance in a Video,"Run-D.M.C., Aerosmith",No 
 1987,Best Special Effects in a Video ,Peter Gabriel,Yes 
 1987,Best Special Effects in a Video ,Genesis,No 
 1987,Best Special Effects in a Video ,Peter Gabriel,No 
@@ -235,7 +235,7 @@ year,award_category,artist_name,win
 1987,Best Special Effects in a Video ,Paul Simon ,No 
 1987,Best Stage Performance in a Video ,Bon Jovi,Yes 
 1987,Best Stage Performance in a Video ,Bruce Springsteen,No 
-1987,Best Stage Performance in a Video ,Run-D.M.C. Feat. Aerosmith,No 
+1987,Best Stage Performance in a Video ,"Run-D.M.C., Aerosmith",No 
 1987,Best Stage Performance in a Video ,Bon Jovi,No 
 1987,Best Stage Performance in a Video ,Bruce Springsteen,No 
 1987,Best Video from a Film ,Talking Heads,Yes 
@@ -337,7 +337,7 @@ year,award_category,artist_name,win
 1988,Video of the Year ,George Harrison,No 
 1988,Video of the Year ,U2,No 
 1988,Video of the Year ,Bruce Springsteen,No 
-1988,Video of the Year ,U2 ,No 
+1988,Video of the Year ,U2,No 
 1988,Viewer’s Choice,INXS,Yes 
 1988,Viewer’s Choice,George Harrison,No 
 1988,Viewer’s Choice,U2,No 
@@ -411,9 +411,9 @@ year,award_category,artist_name,win
 1989,Best Stage Performance in a Video ,Def Leppard,No 
 1989,Best Stage Performance in a Video ,Bobby Brown,No 
 1989,Best Stage Performance in a Video ,Guns N’ Roses,No 
-1989,Best Video from a Film ,U2 Feat. B.B. King,Yes 
+1989,Best Video from a Film ,"U2, B.B. King",Yes 
 1989,Best Video from a Film ,Ice-T,No 
-1989,Best Video from a Film ,Annie Lennox Feat. Al Green ,No 
+1989,Best Video from a Film ,"Annie Lennox, Al Green ",No 
 1989,Best Video from a Film ,The Belle Stars,No 
 1989,Breakthrough Video ,The Art of Noise,Yes 
 1989,Breakthrough Video ,Fine Young Cannibals ,No 
@@ -1167,7 +1167,7 @@ year,award_category,artist_name,win
 1996,Best New Artist in a Video,Garbage ,No 
 1996,Best New Artist in a Video,Tracy Bonham ,No 
 1996,Best R&B Video ,Fugees ,Yes 
-1996,Best R&B Video ,Mariah Carey Feat. Boyz II Men,No 
+1996,Best R&B Video ,"Mariah Carey, Boyz II Men",No 
 1996,Best R&B Video ,D’Angelo ,No 
 1996,Best R&B Video ,Toni Braxton,No 
 1996,Best Rap Video ,Coolio Feat. L.V.,Yes 
@@ -1180,7 +1180,7 @@ year,award_category,artist_name,win
 1996,Best Special Effects in a Video ,The Beatles,No 
 1996,Best Video from a Film ,Coolio Feat. L.V.,Yes 
 1996,Best Video from a Film ,Brandy,No 
-1996,Best Video from a Film ,Adam Clayton & Larry Mullen,No 
+1996,Best Video from a Film ,"Adam Clayton, Larry Mullen",No 
 1996,Best Video from a Film ,Bush ,No 
 1996,Breakthrough Video ,The Smashing Pumpkins ,Yes 
 1996,Breakthrough Video ,Busta Rhymes,No 
@@ -1214,7 +1214,7 @@ year,award_category,artist_name,win
 1996,International Viewer's Choice: MTV India,Sagarika,No 
 1996,International Viewer's Choice: MTV India,Asha Bhosle,No 
 1996,International Viewer's Choice: MTV India,Indus Creed,No 
-1996,International Viewer's Choice: MTV India,Shaan and Style Bhai,No 
+1996,International Viewer's Choice: MTV India,"Shaan, Style Bhai",No 
 1996,International Viewer's Choice: MTV Japan,Kuroyume,Yes 
 1996,International Viewer's Choice: MTV Japan,Seiko Matsuda,No 
 1996,International Viewer's Choice: MTV Japan,Toshinobu Kubota,No 
@@ -1440,7 +1440,7 @@ year,award_category,artist_name,win
 1998,Best New Artist in a Video,Fastball,No 
 1998,Best R&B Video ,Wyclef Jean,Yes 
 1998,Best R&B Video ,K-Ci & JoJo,No 
-1998,Best R&B Video ,Brandy Feat. Monica,No 
+1998,Best R&B Video ,"Brandy, Monica",No 
 1998,Best R&B Video ,Usher,No 
 1998,Best Rap Video ,Will Smith,Yes 
 1998,Best Rap Video ,"Master P Feat. Fiend, Silkk the Shocker, Mia X, Mystikal",No 
@@ -1500,7 +1500,7 @@ year,award_category,artist_name,win
 1998,International Viewer's Choice: MTV Brasil,Os Paralamas do Sucesso,No 
 1998,International Viewer's Choice: MTV Brasil,Planet Hemp,No 
 1998,International Viewer's Choice: MTV Brasil,Soulfly,No 
-1998,International Viewer's Choice: MTV India,Lata Mangeshkar & Udit Narayan,Yes 
+1998,International Viewer's Choice: MTV India,"Lata Mangeshkar, Udit Narayan",Yes 
 1998,International Viewer's Choice: MTV India,Abhijeet Feat. Alka Yagnik,No 
 1998,International Viewer's Choice: MTV India,Kamaal Khan,No 
 1998,International Viewer's Choice: MTV India,A.R. Rahman,No 
@@ -1529,7 +1529,7 @@ year,award_category,artist_name,win
 1998,Video of the Year ,Madonna,Yes 
 1998,Video of the Year ,Puff Daddy,No 
 1998,Video of the Year ,Will Smith,No 
-1998,Video of the Year ,Brandy Feat. Monica,No 
+1998,Video of the Year ,"Brandy, Monica",No 
 1998,Video of the Year ,The Verve,No 
 1998,Viewer’s Choice,Puff Daddy,Yes 
 1998,Viewer’s Choice,Green Day ,No 
@@ -1874,7 +1874,7 @@ year,award_category,artist_name,win
 2002,Best Group Video ,No Doubt Feat. Bounty Killer,Yes 
 2002,Best Group Video ,Blink-182,No 
 2002,Best Group Video ,Linkin Park,No 
-2002,Best Group Video ,*NSYNC Feat. Nelly,No 
+2002,Best Group Video ,"*NSYNC, Nelly",No 
 2002,Best Group Video ,Dave Matthews Band,No 
 2002,Best Group Video ,P.O.D. ,No 
 2002,Best Hip-Hop Video,Jennifer Lopez,Yes 
@@ -1897,7 +1897,7 @@ year,award_category,artist_name,win
 2002,Best Pop Video,No Doubt Feat. Bounty Killer,Yes 
 2002,Best Pop Video,Michelle Branch,No
 2002,Best Pop Video,Shakira,No
-2002,Best Pop Video,*NSYNC Feat. Nelly,No
+2002,Best Pop Video,"*NSYNC, Nelly",No
 2002,Best Pop Video,P!nk ,No
 2002,Best R&B Video ,Mary J. Blige,Yes 
 2002,Best R&B Video ,Alicia Keys,No
@@ -1989,7 +1989,7 @@ year,award_category,artist_name,win
 2003,Best Hip-Hop Video,Missy Elliott,Yes
 2003,Best Hip-Hop Video,Jay-Z Feat. Beyoncé,No
 2003,Best Hip-Hop Video,"Snoop Dogg Feat. Pharrell Williams, Uncle Charlie Wilson",No
-2003,Best Hip-Hop Video,"Busta Rhymes Feat. Mariah Carey, Flipmode",No
+2003,Best Hip-Hop Video,"Busta Rhymes, Mariah Carey Feat. Flipmode",No
 2003,Best Hip-Hop Video,Nelly,No
 2003,Best Male Video,Justin Timberlake,Yes 
 2003,Best Male Video,Eminem,No
@@ -2225,7 +2225,7 @@ year,award_category,artist_name,win
 2005,Best Pop Video,Jesse McCartney,No 
 2005,Best R&B Video ,Alicia Keys,Yes 
 2005,Best R&B Video ,John Legend,No 
-2005,Best R&B Video ,Usher Feat. Alicia Keys,No 
+2005,Best R&B Video ,"Usher, Alicia Keys",No 
 2005,Best R&B Video ,Ciara Feat. Ludacris,No 
 2005,Best R&B Video ,Mariah Carey ,No 
 2005,Best Rap Video ,Ludacris,Yes 
@@ -2394,7 +2394,7 @@ year,award_category,artist_name,win
 2007,Best Director,Joseph Hahn,No 
 2007,Best Director,Chris Applebaum,No 
 2007,Best Director,Jake Nava,No 
-2007,Best Director,Matthew Rolston & Christina Aguilera,No 
+2007,Best Director,"Matthew Rolston, Christina Aguilera",No 
 2007,Best Editing in a Video,Gnarls Barkley,Yes 
 2007,Best Editing in a Video,Justin Timberlake,No 
 2007,Best Editing in a Video,Linkin Park,No 
@@ -2529,7 +2529,7 @@ year,award_category,artist_name,win
 2009,Best Choreography ,Beyoncé,Yes 
 2009,Best Choreography ,Britney Spears,No 
 2009,Best Choreography ,Kristinia DeBarge,No 
-2009,Best Choreography ,"A.R. Rahman Feat. The Pussycat Dolls, Nicole Scherzinger",No 
+2009,Best Choreography ,"A.R. Rahman, The Pussycat Dolls Feat. Nicole Scherzinger",No 
 2009,Best Choreography ,Ciara Feat. Justin Timberlake,No 
 2009,Best Cinematography,Green Day ,Yes 
 2009,Best Cinematography,Britney Spears,No 
@@ -2788,14 +2788,14 @@ year,award_category,artist_name,win
 2012,Best Cinematography,Drake Feat. Rihanna,No 
 2012,Best Direction ,M.I.A. ,Yes 
 2012,Best Direction ,Duck Sauce,No 
-2012,Best Direction ,Jay-Z Feat. Kanye West ,No 
+2012,Best Direction ,"Jay-Z, Kanye West ",No 
 2012,Best Direction ,Coldplay Feat. Rihanna,No 
 2012,Best Direction ,Frank Ocean ,No 
 2012,Best Editing ,Beyoncé,Yes 
 2012,Best Editing ,Gotye Feat. Kimbra,No 
 2012,Best Editing ,"Kanye West Feat. Pusha T, Big Sean, 2 Chainz",No 
 2012,Best Editing ,A$AP Rocky,No 
-2012,Best Editing ,Jay-Z Feat. Kanye West ,No 
+2012,Best Editing ,"Jay-Z, Kanye West ",No 
 2012,Best Electronic Dance Music video,Calvin Harris,Yes 
 2012,Best Electronic Dance Music video,Duck Sauce,No 
 2012,Best Electronic Dance Music video,Skrillex,No 
@@ -2803,11 +2803,11 @@ year,award_category,artist_name,win
 2012,Best Electronic Dance Music video,Martin Solveig,No 
 2012,Best Female Video,Nicki Minaj,Yes 
 2012,Best Female Video,Katy Perry,No 
-2012,Best Female Video,Selena Gomez & the Scene,No 
+2012,Best Female Video,Selena Gomez & The Scene,No 
 2012,Best Female Video,Beyoncé,No 
 2012,Best Female Video,Rihanna Feat. Calvin Harris,No 
 2012,Best Hip-Hop Video,Drake Feat. Lil Wayne,Yes 
-2012,Best Hip-Hop Video,Jay-Z Feat. Kanye West ,No 
+2012,Best Hip-Hop Video,"Jay-Z, Kanye West ",No 
 2012,Best Hip-Hop Video,Nicki Minaj Feat. 2 Chainz,No 
 2012,Best Hip-Hop Video,Childish Gambino ,No 
 2012,Best Hip-Hop Video,"Kanye West Feat. Pusha T, Big Sean, 2 Chainz",No 
@@ -2952,14 +2952,14 @@ year,award_category,artist_name,win
 2014,Best Art Direction ,Arcade Fire,Yes 
 2014,Best Art Direction ,Eminem,No 
 2014,Best Art Direction ,"Tyler, the Creator",No 
-2014,Best Art Direction ,DJ Snake & Lil Jon,No 
+2014,Best Art Direction ,"DJ Snake, Lil Jon",No 
 2014,Best Art Direction ,Iggy Azalea Feat. Charli XCX,No 
 2014,Best Choreography ,Sia,Yes 
 2014,Best Choreography ,Beyoncé,No 
 2014,Best Choreography ,Kiesza,No 
 2014,Best Choreography ,Usher,No 
 2014,Best Choreography ,Jason Derulo Feat. 2 Chainz,No 
-2014,Best Choreography ,Michael Jackson Feat. Justin Timberlake,No 
+2014,Best Choreography ,"Michael Jackson, Justin Timberlake",No 
 2014,Best Cinematography,Beyoncé,Yes 
 2014,Best Cinematography,Arcade Fire,No 
 2014,Best Cinematography,Lana Del Ray,No 
@@ -2971,7 +2971,7 @@ year,award_category,artist_name,win
 2014,Best Collaboration,Ariana Grande Feat. Iggy Azalea,No 
 2014,Best Collaboration,Eminem Feat. Rihanna,No 
 2014,Best Collaboration,Pitbull Feat. Ke$ha,No 
-2014,Best Direction ,DJ Snake & Lil Jon,Yes 
+2014,Best Direction ,"DJ Snake, Lil Jon",Yes 
 2014,Best Direction ,Eminem Feat. Rihanna,No 
 2014,Best Direction ,OK Go,No 
 2014,Best Direction ,Beyoncé,No 
@@ -3020,7 +3020,7 @@ year,award_category,artist_name,win
 2014,Best Visual Effects,OK Go,Yes 
 2014,Best Visual Effects,Disclosure,No 
 2014,Best Visual Effects,Jack White,No 
-2014,Best Visual Effects,DJ Snake Feat. Lil Jon,No 
+2014,Best Visual Effects,"DJ Snake, Lil Jon",No 
 2014,Best Visual Effects,Eminem,No 
 2014,Video of the Year ,Miley Cyrus,Yes 
 2014,Video of the Year ,Iggy Azalea Feat. Charli XCX,No 
@@ -3028,7 +3028,7 @@ year,award_category,artist_name,win
 2014,Video of the Year ,Beyoncé,No 
 2014,Video of the Year ,Pharrell Williams,No 
 2014,MTV Clubland Award,Zedd Feat. Hayley Williams,Yes 
-2014,MTV Clubland Award,DJ Snake Feat. Lil Jon,No 
+2014,MTV Clubland Award,"DJ Snake, Lil Jon",No 
 2014,MTV Clubland Award,Martin Garrix,No 
 2014,MTV Clubland Award,Calvin Harris,No 
 2014,MTV Clubland Award,Disclosure,No 
@@ -3039,7 +3039,7 @@ year,award_category,artist_name,win
 2015,Artist to Watch,FKA Twigs,No 
 2015,Artist to Watch,James Bay,No 
 2015,Best Art Direction ,Snoop Dogg,Yes 
-2015,Best Art Direction ,Skrillex & Diplo Feat. Justin Bieber,No 
+2015,Best Art Direction ,"Skrillex, Diplo Feat. Justin Bieber",No 
 2015,Best Art Direction ,The Chemical Brothers,No 
 2015,Best Art Direction ,Jack White,No 
 2015,Best Art Direction ,Taylor Swift,No 
@@ -3054,7 +3054,7 @@ year,award_category,artist_name,win
 2015,Best Cinematography,Alt-J,No 
 2015,Best Cinematography,FKA Twigs,No 
 2015,Best Collaboration,Taylor Swift Feat. Kendrick Lamar,Yes 
-2015,Best Collaboration,"Jessie J Feat. Ariana Grande, Nicki Minaj",No 
+2015,Best Collaboration,"Jessie J, Ariana Grande, Nicki Minaj",No 
 2015,Best Collaboration,Wiz Khalifa Feat. Charlie Puth,No 
 2015,Best Collaboration,Ariana Grande Feat. The Weeknd,No 
 2015,Best Collaboration,Mark Ronson Feat. Bruno Mars,No 
@@ -3067,7 +3067,7 @@ year,award_category,artist_name,win
 2015,Best Editing,Ed Sheeran,No 
 2015,Best Editing,Taylor Swift,No 
 2015,Best Editing,A$AP Rocky,No 
-2015,Best Editing,Skrillex & Diplo Feat. Justin Bieber,No 
+2015,Best Editing,"Skrillex, Diplo Feat. Justin Bieber",No 
 2015,Best Female Video,Taylor Swift,Yes 
 2015,Best Female Video,Ellie Goulding,No 
 2015,Best Female Video,Sia,No 
@@ -3098,7 +3098,7 @@ year,award_category,artist_name,win
 2015,Best Video with a Social Message,Wale,No 
 2015,Best Video with a Social Message,Colbie Caillat,No 
 2015,Best Video with a Social Message,Rihanna,No 
-2015,Best Visual Effects,Skrillex & Diplo Feat. Justin Bieber,Yes 
+2015,Best Visual Effects,"Skrillex, Diplo Feat. Justin Bieber",Yes 
 2015,Best Visual Effects,Childish Gambino ,No 
 2015,Best Visual Effects,FKA Twigs,No 
 2015,Best Visual Effects,Taylor Swift,No 
@@ -3111,9 +3111,9 @@ year,award_category,artist_name,win
 2015,Song of Summer ,Taylor Swift,No 
 2015,Song of Summer ,"David Guetta Feat. Nicki Minaj, Afrojack, Bebe Rexha",No 
 2015,Song of Summer ,Fetty Wap,No 
-2015,Song of Summer ,Major Lazer & DJ Snake Feat. MØ,No 
+2015,Song of Summer ,"Major Lazer, DJ Snake Feat. MØ",No 
 2015,Song of Summer ,Selena Gomez Feat. A$AP Rocky,No 
-2015,Song of Summer ,Skrillex & Diplo Feat. Justin Bieber,No 
+2015,Song of Summer ,"Skrillex, Diplo Feat. Justin Bieber",No 
 2015,Song of Summer ,The Weeknd,No 
 2015,Video of the Year ,Taylor Swift,Yes 
 2015,Video of the Year ,Ed Sheeran,No 
@@ -3233,13 +3233,13 @@ year,award_category,artist_name,win
 2017,Best Cinematography,Imagine Dragons,No 
 2017,Best Cinematography,DJ Shadow Feat. Run the Jewels,No 
 2017,Best Cinematography,Halsey ,No 
-2017,Best Collaboration,Zayn Feat. Taylor Swift ,Yes 
+2017,Best Collaboration,"Zayn, Taylor Swift ",Yes 
 2017,Best Collaboration,Charlie Puth Feat. Selena Gomez,No 
 2017,Best Collaboration,"DJ Khaled Feat. Rihanna, Bryson Tiller ",No 
 2017,Best Collaboration,"Calvin Harris Feat. Pharrell Williams, Katy Perry, Big Sean",No 
 2017,Best Collaboration,D.R.A.M. Feat. Lil Yachty ,No 
 2017,Best Collaboration,The Chainsmokers Feat. Halsey,No 
-2017,Best Dance Video ,Zedd Feat. Alessia Cara,Yes 
+2017,Best Dance Video ,"Zedd, Alessia Cara",Yes 
 2017,Best Dance Video ,Calvin Harris,No 
 2017,Best Dance Video ,"Major Lazer Feat. Justine Bieber, MØ",No 
 2017,Best Dance Video ,Afrojack Feat. Ty Dolla Sign,No 
@@ -3285,13 +3285,13 @@ year,award_category,artist_name,win
 2017,Best Rock Video,Foo Fighters,No 
 2017,Best Visual Effects,Kendrick Lamar ,Yes 
 2017,Best Visual Effects,Harry Styles,No 
-2017,Best Visual Effects,Kyle Feat. Lil Yachty,No 
+2017,Best Visual Effects,"Kyle, Lil Yachty",No 
 2017,Best Visual Effects,A Tribe Called Quest,No 
 2017,Best Visual Effects,Katy Perry Feat. Skip Marley,No 
 2017,Song of the Summer,Lil Uzi Vert,Yes 
 2017,Song of the Summer,"DJ Khaled Feat. Rihanna, Bryson Tiller ",No 
 2017,Song of the Summer,Ed Sheeran,No 
-2017,Song of the Summer,"Luis Fonsi Feat. Daddy Yankee, Justin Bieber",No 
+2017,Song of the Summer,"Luis Fonsi, Daddy Yankee Feat. Justin Bieber",No 
 2017,Song of the Summer,Camila Cabello Feat. Quavo,No 
 2017,Song of the Summer,Demi Lovato,No 
 2017,Song of the Summer,Fifth Harmony,No 
@@ -3333,11 +3333,11 @@ year,award_category,artist_name,win
 2018,Best Collaboration,"Logic Feat. Alessia Cara, Khalid",No 
 2018,Best Collaboration,The Carters,No 
 2018,Best Dance Video ,Avicii Feat. Rita Ora,Yes 
-2018,Best Dance Video ,David Guetta Feat. Sia,No 
+2018,Best Dance Video ,"David Guetta, Sia",No 
 2018,Best Dance Video ,The Chainsmokers,No 
-2018,Best Dance Video ,Calvin Harris Feat. Dua Lipa,No 
+2018,Best Dance Video ,"Calvin Harris, Dua Lipa",No 
 2018,Best Dance Video ,Marshmello Feat. Khalid,No 
-2018,Best Dance Video ,Zedd Feat. Liam Payne,No 
+2018,Best Dance Video ,"Zedd, Liam Payne",No 
 2018,Best Direction ,Childish Gambino ,Yes
 2018,Best Direction ,Ed Sheeran,No 
 2018,Best Direction ,Shawn Mendes,No 
@@ -3356,11 +3356,11 @@ year,award_category,artist_name,win
 2018,Best Hip-Hop Video,Cardi B Feat. 21 Savage,No 
 2018,Best Hip-Hop Video,J. Cole,No 
 2018,Best Hip-Hop Video,The Carters,No 
-2018,Best Latin Video,J. Balvin Feat. Willy Williams,Yes 
+2018,Best Latin Video,"J. Balvin, Willy Williams",Yes 
 2018,Best Latin Video,"Jennifer Lopez Feat. DJ Khaled, Cardi B",No 
 2018,Best Latin Video,Maluma,No 
 2018,Best Latin Video,Daddy Yankee,No 
-2018,Best Latin Video,Luis Fonsi Feat. Demi Lovato,No 
+2018,Best Latin Video,"Luis Fonsi, Demi Lovato",No 
 2018,Best Latin Video,Shakira Feat. Maluma,No 
 2018,Best New Artist,Cardi B,Yes 
 2018,Best New Artist,Chloe x Halle,No 
@@ -3386,7 +3386,7 @@ year,award_category,artist_name,win
 2018,Best Video with a Message,Dej Loaf Feat. Leon Bridges,No 
 2018,Best Video with a Message,Janelle Monáe,No 
 2018,Best Video with a Message,"Logic Feat. Alessia Cara, Khalid",No 
-2018,Best Visual Effects,Kendrick Lamar Feat. SZA,Yes 
+2018,Best Visual Effects,"Kendrick Lamar, SZA",Yes 
 2018,Best Visual Effects,Avicii Feat. Rita Ora,No 
 2018,Best Visual Effects,Maroon 5,No 
 2018,Best Visual Effects,Ariana Grande,No 
@@ -3411,7 +3411,7 @@ year,award_category,artist_name,win
 2018,Song of Summer ,"DJ Khaled Feat. Justin Bieber, Chance the Rapper, Quavo",No 
 2018,Song of Summer ,Ella Mai,No 
 2018,Song of Summer ,Maroon 5 Feat. Cardi B,No 
-2018,Song of Summer ,Calvin Harris Feat. Dua Lipa,No 
+2018,Song of Summer ,"Calvin Harris, Dua Lipa",No 
 2018,Song of Summer ,Drake,No 
 2018,Song of Summer ,Juice WRLD,No 
 2018,Song of Summer ,Post Malone,No 
@@ -3435,25 +3435,25 @@ year,award_category,artist_name,win
 2019,Artist of the Year,Halsey,No 
 2019,Artist of the Year,The Jonas Brothers,No 
 2019,Best Art Direction ,Ariana Grande,Yes 
-2019,Best Art Direction ,"Kanye Feat. Lil Pump, Adele Givens",No 
-2019,Best Art Direction ,Shawn Mendes Feat Camila Cabello,No 
+2019,Best Art Direction ,"Kanye, Lil Pump Feat. Adele Givens",No 
+2019,Best Art Direction ,"Shawn Mendes, Camila Cabello",No 
 2019,Best Art Direction ,BTS Feat. Halsey,No 
 2019,Best Art Direction ,Lil Nas X Feat. Billy Ray Cyrus,No 
 2019,Best Art Direction ,Taylor Swift,No 
-2019,Best Choreography ,"Rosalía Feat. J Balvin, Guincho",Yes 
+2019,Best Choreography ,"Rosalía, J Balvin Feat. El Guincho",Yes 
 2019,Best Choreography ,FKA Twigs,No 
-2019,Best Choreography ,Shawn Mendes Feat Camila Cabello,No 
+2019,Best Choreography ,"Shawn Mendes, Camila Cabello",No 
 2019,Best Choreography ,BTS Feat. Halsey,No 
 2019,Best Choreography ,"LSD Feat. Labrinth, Sia, Diplo",No 
 2019,Best Choreography ,Solange,No 
-2019,Best Cinematography,Shawn Mendes Feat Camila Cabello,Yes 
+2019,Best Cinematography,"Shawn Mendes, Camila Cabello",Yes 
 2019,Best Cinematography,Ariana Grande,No 
 2019,Best Cinematography,Solange,No 
 2019,Best Cinematography,Anderson.Paak Feat. Kendrick Lamar,No 
 2019,Best Cinematography,Billie Eilish,No 
 2019,Best Cinematography,Taylor Swift Feat. Brendon Urie of Pan!c At The Disco,No 
-2019,Best Collaboration,Shawn Mendes Feat Camila Cabello,Yes 
-2019,Best Collaboration,Ed Sheeran Feat. Justin Bieber ,No 
+2019,Best Collaboration,"Shawn Mendes, Camila Cabello",Yes 
+2019,Best Collaboration,"Ed Sheeran, Justin Bieber ",No 
 2019,Best Collaboration,Lil Nas X Feat. Billy Ray Cyrus,No 
 2019,Best Collaboration,BTS Feat. Halsey,No 
 2019,Best Collaboration,Lady Gaga Feat. Bradley Cooper,No 
@@ -3461,9 +3461,9 @@ year,award_category,artist_name,win
 2019,Best Dance Video ,The Chainsmokers Feat. Bebe Rexha,Yes 
 2019,Best Dance Video ,"Dj Snake Feat. Ozuna, Cardi B, Selena Gomez",No 
 2019,Best Dance Video ,Marshmello Feat. Bastille ,No 
-2019,Best Dance Video ,Clean Bandit Feat. Demi Lovato,No 
-2019,Best Dance Video ,"David Guetta Feat. Bebe Rexha, J Balvin",No 
-2019,Best Dance Video ,"Silk City Feat. Dua Lipa, Diplo, Mark Ronson",No 
+2019,Best Dance Video ,"Clean Bandit, Demi Lovato",No 
+2019,Best Dance Video ,"David Guetta, Bebe Rexha, J Balvin",No 
+2019,Best Dance Video ,"Silk City, Dua Lipa Feat. Diplo, Mark Ronson",No 
 2019,Best Direction ,Lil Nas X Feat. Billy Ray Cyrus,Yes 
 2019,Best Direction ,Billie Eilish,No 
 2019,Best Direction ,"LSD Feat. Labrinth, Sia, Diplo",No 
@@ -3496,11 +3496,11 @@ year,award_category,artist_name,win
 2019,Best K-Pop,Blackpink ,No 
 2019,Best K-Pop,Monsta X Feat. French Montana,No 
 2019,Best K-Pop,TXT,No 
-2019,Best Latin,"Rosalía Feat. J Balvin, Guincho",Yes 
-2019,Best Latin,"Benny Blanco Feat. Tainy, Selena Gomez, J Balvin",No 
-2019,Best Latin,Anuel AA Feat. Karol G,No 
+2019,Best Latin,"Rosalía, J Balvin Feat. El Guincho",Yes 
+2019,Best Latin,"Benny Blanco, Tainy, Selena Gomez, J Balvin",No 
+2019,Best Latin,"Karol G, Anuel AA ",No 
 2019,Best Latin,Bad Bunny Feat. Drake,No 
-2019,Best Latin,Daddy Yankee Feat. Snow,No 
+2019,Best Latin,"Daddy Yankee, Snow",No 
 2019,Best Latin,Maluma,No 
 2019,Best New Artist,Billie Eilish,Yes 
 2019,Best New Artist,H.E.R.,No 
@@ -3510,7 +3510,7 @@ year,award_category,artist_name,win
 2019,Best New Artist,Rosalía,No 
 2019,Best Pop ,Jonas Brothers,Yes 
 2019,Best Pop ,Ariana Grande,No 
-2019,Best Pop ,Cardi B Feat. Bruno Mars,No 
+2019,Best Pop ,"Cardi B, Bruno Mars",No 
 2019,Best Pop ,5 Seconds of Summer,No 
 2019,Best Pop ,Billie Eilish,No 
 2019,Best Pop ,Khalid,No 
@@ -3546,22 +3546,22 @@ year,award_category,artist_name,win
 2019,Push Artist of the Year,Bazzi,No 
 2019,Push Artist of the Year,H.E.R.,No 
 2019,Push Artist of the Year,Lizzo,No 
-2019,Song of Summer ,Ariana Grande Feat. Social House,Yes 
+2019,Song of Summer ,"Ariana Grande, Social House",Yes 
 2019,Song of Summer ,DaBaby,No 
 2019,Song of Summer ,Jonas Brothers,No 
 2019,Song of Summer ,Lil Nas X Feat. Billy Ray Cyrus,No 
 2019,Song of Summer ,Lil Tecca,No 
 2019,Song of Summer ,Lizzo,No 
 2019,Song of Summer ,Post Malone Feat. Young Thug,No 
-2019,Song of Summer ,Shawn Mendes Feat Camila Cabello,No 
+2019,Song of Summer ,"Shawn Mendes, Camila Cabello",No 
 2019,Song of Summer ,The Chainsmokers Feat. Bebe Rexha,No 
 2019,Song of Summer ,Billie Eilish,No 
-2019,Song of Summer ,Ed Sheeran Feat. Justin Bieber ,No 
+2019,Song of Summer ,"Ed Sheeran, Justin Bieber ",No 
 2019,Song of Summer ,Khalid,No 
 2019,Song of Summer ,Miley Cyrus,No 
-2019,Song of Summer ,"Rosalía Feat. J Balvin, Guincho",No 
+2019,Song of Summer ,"Rosalía, J Balvin, El Guincho",No 
 2019,Song of Summer ,Taylor Swift,No 
-2019,Song of Summer ,Young Thug,No 
+2019,Song of Summer ,"Young Thug Feat. J. Cole, Travis Scott ",No 
 2019,Song of the Year,Lil Nas X Feat. Billy Ray Cyrus,Yes 
 2019,Song of the Year,Drake,No 
 2019,Song of the Year,Lady Gaga Feat. Bradley Cooper,No 
@@ -3569,7 +3569,7 @@ year,award_category,artist_name,win
 2019,Song of the Year,Jonas Brothers,No 
 2019,Song of the Year,Taylor Swift,No 
 2019,Video for Good,Taylor Swift,Yes 
-2019,Video for Good,"Jamie N Commons Feat. Skylar Grey, Gallant",No 
+2019,Video for Good,"Jamie N Commons, Skylar Grey Feat. Gallant",No 
 2019,Video for Good,Lil Dicky,No 
 2019,Video for Good,Halsey,No 
 2019,Video for Good,John Legend,No 
@@ -3602,22 +3602,22 @@ year,award_category,artist_name,win
 2020,Best Art Direction ,Taylor Swift,No 
 2020,Best Choreography ,BTS,Yes 
 2020,Best Choreography ,DaBaby,No 
-2020,Best Choreography ,Lady Gaga Feat. Ariana Grande,No 
-2020,Best Choreography ,CNCO Feat. Natti Natasha,No 
+2020,Best Choreography ,"Lady Gaga, Ariana Grande",No 
+2020,Best Choreography ,"CNCO, Natti Natasha",No 
 2020,Best Choreography ,Dua Lipa,No 
 2020,Best Choreography ,Normani ,No 
-2020,Best Cinematography,Lady Gaga Feat. Beyoncé,Yes 
+2020,Best Cinematography,"Lady Gaga, Ariana Grande",Yes 
 2020,Best Cinematography,Billie Eilish,No 
 2020,Best Cinematography,Katy Perry,No 
 2020,Best Cinematography,5 Seconds of Summer,No 
 2020,Best Cinematography,Camila Cabello Feat. DaBaby,No 
 2020,Best Cinematography,The Weeknd,No 
-2020,Best Collaboration,Lady Gaga Feat. Ariana Grande,Yes
+2020,Best Collaboration,"Lady Gaga, Ariana Grande",Yes
 2020,Best Collaboration,Ed Sheeran Feat. Khalid,No
-2020,Best Collaboration,Karol G Feat. Nicki Minaj,No
-2020,Best Collaboration,Ariana Grande Feat. Justin Bieber,No
+2020,Best Collaboration,"Karol G, Nicki Minaj",No
+2020,Best Collaboration,"Ariana Grande, Justin Bieber",No
 2020,Best Collaboration,Future Feat. Drake ,No
-2020,Best Collaboration,The Black Eyed Peas Feat J Balvin,No
+2020,Best Collaboration,"The Black Eyed Peas, J Balvin",No
 2020,Best Direction ,Taylor Swift,Yes 
 2020,Best Direction ,Doja Cat,No 
 2020,Best Direction ,Harry Styles,No 
@@ -3652,13 +3652,13 @@ year,award_category,artist_name,win
 2020,Best K-Pop,(G)I-DLE,No 
 2020,Best K-Pop,Monsta X,No 
 2020,Best K-Pop,TXT,No 
-2020,Best Latin,Maluma Feat. J Balvin,Yes 
+2020,Best Latin,"Maluma, J Balvin",Yes 
 2020,Best Latin,Bad Bunny ,No 
 2020,Best Latin,J Balvin,No 
-2020,Best Latin,"Anuel AA Feat. Daddy Yankee, Karol G, Ozuna, J Balvin",No 
-2020,Best Latin,"The Black Eyed Peas Feat. Ozuna, J. Rey Soul",No 
-2020,Best Latin,Karol G Feat. Nicki Minaj,No 
-2020,Best Music Video from Home,Ariana Grande Feat. Justin Bieber,Yes 
+2020,Best Latin,"Anuel AA, Daddy Yankee, Karol G, Ozuna, J Balvin",No 
+2020,Best Latin,"The Black Eyed Peas, Ozuna, J. Rey Soul",No 
+2020,Best Latin,"Karol G, Nicki Minaj",No 
+2020,Best Music Video from Home,"Ariana Grande, Justin Bieber",Yes 
 2020,Best Music Video from Home,Blink-182,No 
 2020,Best Music Video from Home,John Legend,No 
 2020,Best Music Video from Home,5 Seconds of Summer,No 
@@ -3666,9 +3666,9 @@ year,award_category,artist_name,win
 2020,Best Music Video from Home,Twenty One Pilots,No 
 2020,Best Pop ,BTS,Yes 
 2020,Best Pop ,Jonas Brothers,No 
-2020,Best Pop ,Lady Gaga Feat. Ariana Grande,No 
+2020,Best Pop ,"Lady Gaga, Ariana Grande",No 
 2020,Best Pop ,Halsey,No 
-2020,Best Pop ,Justin Bieber,No 
+2020,Best Pop ,Justin Bieber Feat. Quavo,No 
 2020,Best Pop ,Taylor Swift,No 
 2020,Best Quarantine Performance,CNCO,Yes 
 2020,Best Quarantine Performance,John Legend,No 
@@ -3690,7 +3690,7 @@ year,award_category,artist_name,win
 2020,Best Rock ,The Killers,No 
 2020,Best Visual Effects,Dua Lipa,Yes 
 2020,Best Visual Effects,Demi Lovato,No 
-2020,Best Visual Effects,Lady Gaga Feat. Ariana Grande,No 
+2020,Best Visual Effects,"Lady Gaga, Ariana Grande",No 
 2020,Best Visual Effects,Billie Eilish,No 
 2020,Best Visual Effects,Harry Styles,No 
 2020,Best Visual Effects,Travis Scott,No 
@@ -3701,7 +3701,7 @@ year,award_category,artist_name,win
 2020,Song of Summer ,DJ Khaled Feat. Drake,No 
 2020,Song of Summer ,Doja Cat,No 
 2020,Song of Summer ,Harry Styles,No 
-2020,Song of Summer ,Lil Baby Feat. 42 Dugg,No 
+2020,Song of Summer ,"Lil Baby, 42 Dugg",No 
 2020,Song of Summer ,Miley Cyrus,No 
 2020,Song of Summer ,Saint Jhn,No 
 2020,Song of Summer ,Taylor Swift,No 
@@ -3710,10 +3710,10 @@ year,award_category,artist_name,win
 2020,Song of Summer ,Dua Lipa,No 
 2020,Song of Summer ,Jack Harlow,No 
 2020,Song of Summer ,Megan Thee Stallion Feat. Beyoncé,No 
-2020,Song of Summer ,"Pop Smoke Feat. 50 Cent, Roddy Ricch ",No 
+2020,Song of Summer ,"Pop Smoke Feat. 50 Cent, Roddy Ricch",No 
 2020,Song of Summer ,Saweetie,No 
 2020,Song of Summer ,The Weeknd,No 
-2020,Song of the Year,Lady Gaga Feat. Ariana Grande,Yes 
+2020,Song of the Year,"Lady Gaga, Ariana Grande",Yes 
 2020,Song of the Year,Doja Cat,No 
 2020,Song of the Year,Post Malone,No 
 2020,Song of the Year,Billie Eilish,No 
@@ -3727,7 +3727,7 @@ year,award_category,artist_name,win
 2020,Video for Good,Taylor Swift,No 
 2020,Video of the Year ,The Weeknd,Yes 
 2020,Video of the Year ,Eminem Feat. Juice WRLD,No 
-2020,Video of the Year ,Lady Gaga Feat. Ariana Grande,No 
+2020,Video of the Year ,"Lady Gaga, Ariana Grande",No 
 2020,Video of the Year ,Billie Eilish,No 
 2020,Video of the Year ,Future Feat. Drake ,No 
 2020,Video of the Year ,Taylor Swift,No 
@@ -3746,7 +3746,7 @@ year,award_category,artist_name,win
 2021,Best Art Direction ,Saweetie Feat. Doja Cat,Yes 
 2021,Best Art Direction ,Ed Sheeran,No 
 2021,Best Art Direction ,Lil Nas X,No 
-2021,Best Art Direction ,"Beyoncé Feat. Shatta Wale, Major Lazer",No 
+2021,Best Art Direction ,"Beyoncé, Shatta Wale, Major Lazer",No 
 2021,Best Art Direction ,Lady Gaga,No 
 2021,Best Art Direction ,Taylor Swift,No 
 2021,Best Choreography ,Harry Styles,Yes 
@@ -3754,8 +3754,8 @@ year,award_category,artist_name,win
 2021,Best Choreography ,Foo Fighters,No 
 2021,Best Choreography ,Ariana Grande,No 
 2021,Best Choreography ,Ed Sheeran,No 
-2021,Best Choreography ,Marshmello Feat. Halsey,No 
-2021,Best Cinematography,"Beyoncé Feat. Blue Ivy, Saint Jhn, Wizkid",Yes 
+2021,Best Choreography ,"Marshmello, Halsey",No 
+2021,Best Cinematography,"Beyoncé, Blue Ivy, Saint Jhn, Wizkid",Yes 
 2021,Best Cinematography,Foo Fighters,No 
 2021,Best Cinematography,Lady Gaga,No 
 2021,Best Cinematography,Billie Eilish,No 
@@ -3791,11 +3791,11 @@ year,award_category,artist_name,win
 2021,Best K-Pop,(G)I-DLE,No 
 2021,Best K-Pop,Monsta X,No 
 2021,Best K-Pop,Twice,No 
-2021,Best Latin,Billie Eilish Feat. Rosalía,Yes 
-2021,Best Latin,The Black Eyed Peas Feat. Shakira,No 
+2021,Best Latin,"Billie Eilish, Rosalía",Yes 
+2021,Best Latin,"The Black Eyed Peas, Shakira",No 
 2021,Best Latin,Karol G,No 
-2021,Best Latin,Bad Bunny Feat. Jhay Cortez,No 
-2021,Best Latin,"J Balvin Feat. Dua Lipa, Bad Bunny, Tainy",No 
+2021,Best Latin,"Bad Bunny, Jhay Cortez",No 
+2021,Best Latin,"J Balvin, Dua Lipa, Bad Bunny, Tainy",No 
 2021,Best Latin,Maluma,No 
 2021,Best New Artist,Olivia Rodrigo,Yes 
 2021,Best New Artist,Giveon,No 
@@ -3814,7 +3814,7 @@ year,award_category,artist_name,win
 2021,Best R&B ,"Bruno Mars, Anderson.Paak, Silk Sonic",Yes 
 2021,Best R&B ,Chris Brown Feat. Young Thug,No 
 2021,Best R&B ,H.E.R. Feat. Chris Brown,No 
-2021,Best R&B ,"Beyoncé Feat. Blue Ivy, Saint Jhn, Wizkid",No 
+2021,Best R&B ,"Beyoncé, Blue Ivy, Saint Jhn, Wizkid",No 
 2021,Best R&B ,Giveon,No 
 2021,Best R&B ,SZA,No 
 2021,Best Rock ,John Mayer,Yes 
@@ -3827,7 +3827,7 @@ year,award_category,artist_name,win
 2021,Best Visual Effects,Coldplay,No 
 2021,Best Visual Effects,Glass Animals,No 
 2021,Best Visual Effects,Bella Poarch,No 
-2021,Best Visual Effects,Doja Cat Feat. The Weeknd,No 
+2021,Best Visual Effects,"Doja Cat, The Weeknd",No 
 2021,Best Visual Effects,P!nk ,No 
 2021,Push Performance of the Year,Olivia Rodrigo,Yes 
 2021,Push Performance of the Year,Ashnikko,No 

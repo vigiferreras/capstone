@@ -17,7 +17,7 @@ import pandas as pd
 
 
 #reading in the Best New Artist Winners csv file and converting to a dataframe
-grammy_best_new = pd.read_csv("~/Desktop/capstone/data/best_new.csv")
+grammy_best_new = pd.read_csv("~/Desktop/capstone/data/best_new2.csv")
 best_new_df = pd.DataFrame(grammy_best_new)
 
 #isolating the artist winners

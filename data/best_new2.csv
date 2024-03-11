@@ -1,44 +1,44 @@
-award_year,artist_name
-1980,Rickie Lee Jones
-1981,Christopher Cross
-1982,Sheena Easton
-1983,Men At Work
-1984,Culture
-1985,Cyndi Lauper
-1986,Sade
-1987,Bruce Hornsby & The Range
-1988,Jody Watley
-1989,Tracy Chapman
-1990,Wind Beneath My Wings
-1991,Mariah Carey
-1992,Marc Cohn
-1993,Arrested Development
-1994,Toni Braxton
-1995,Sheryl Crow
-1996,Hootie & The Blowfish
-1997,LeAnn Rimes
-1998,Paula Cole
-1999,Lauryn Hill
-2000,Christina Aguilera
-2001,Shelby Lynne
-2002,Alicia Keys
-2003,Norah Jones
-2004,Evanescence
-2005,Maroon 5
-2006,John Legend
-2007,Carrie Underwood
-2008,Amy Winehouse
-2009,Adele
-2010,Zac Brown Band
-2011,Esperanza Spalding
-2012,Bon Iver
-2013,Fun.
-2014,Macklemore & Ryan Lewis
-2015,Sam Smith
-2016,Meghan Trainor
-2017,Chance The Rapper
-2018,Alessia Cara
-2019,Dua Lipa
-2020,Billie Eilish
-2021,Megan Thee Stallion
-2022,Olivia Rodrigo
+award_date,artist
+"February 27, 1980",Rickie Lee Jones
+"February 25, 1981",Christopher Cross
+"February 24, 1982",Sheena Easton
+"February 23, 1983",Men At Work
+"February 28, 1984",Culture
+"February 26, 1985",Cyndi Lauper
+"February 25, 1986",Sade
+"February 24, 1987",Bruce Hornsby & The Range
+"March 2, 1988",Jody Watley
+"February 22, 1989",Tracy Chapman
+"February 21, 1990",Milli Vanilli
+"February 20, 1991",Mariah Carey
+"February 25, 1992",Marc Cohn
+"February 24, 1993",Arrested Development
+"March 1, 1994",Toni Braxton
+"March 1, 1995",Sheryl Crow
+"February 28, 1996",Hootie & The Blowfish
+"February 26, 1997",LeAnn Rimes
+"February 25, 1998",Paula Cole
+"February 24, 1999",Lauryn Hill
+"February 23, 2000",Christina Aguilera
+"February 21, 2001",Shelby Lynne
+"February 27, 2002",Alicia Keys
+"February 23, 2003",Norah Jones
+"February 8, 2004",Evanescence
+"February 13, 2005",Maroon 5
+"February 8, 2006",John Legend
+"February 11, 2007",Carrie Underwood
+"February 10, 2008",Amy Winehouse
+"February 8, 2009",Adele
+"January 31, 2010",Zac Brown Band
+"February 13, 2011",Esperanza Spalding
+"February 12, 2012",Bon Iver
+"February 10, 2013",fun.
+"January 26, 2014",Macklemore & Ryan Lewis
+"February 8, 2015",Sam Smith
+"February 15, 2016",Meghan Trainor
+"February 12, 2017",Chance The Rapper
+"January 28, 2018",Alessia Cara
+"February 10, 2019",Dua Lipa
+"January 26, 2020",Billie Eilish
+"March 14, 2021",Megan Thee Stallion
+"April 3, 2022",Olivia Rodrigo

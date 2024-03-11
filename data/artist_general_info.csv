@@ -1,44 +1,44 @@
-artist_name,genre,followers,popularity
-Rickie Lee Jones,"['folk', 'singer-songwriter']",193228,44
-Christopher Cross,"['mellow gold', 'soft rock', 'yacht rock']",986525,63
-Sheena Easton,"['mellow gold', 'minneapolis sound', 'new romantic', 'new wave pop', 'soft rock']",659264,55
-Men At Work,"['album rock', 'australian rock', 'classic rock', 'hard rock', 'heartland rock', 'mellow gold', 'new romantic', 'new wave', 'new wave pop', 'rock', 'soft rock']",1195301,66
-Culture,"['new romantic', 'new wave', 'new wave pop', 'soft rock', 'synthpop']",1520222,63
-Cyndi Lauper,"['dance pop', 'new wave pop', 'permanent wave', 'soft rock']",2547668,70
-Sade,"['british soul', 'sophisti-pop']",3595959,73
-Bruce Hornsby & The Range,"['album rock', 'heartland rock', 'mellow gold', 'piano rock', 'singer-songwriter', 'soft rock']",391567,53
-Jody Watley,"['contemporary r&b', 'freestyle', 'minneapolis sound', 'new jack swing', 'quiet storm', 'urban contemporary']",309087,38
-Tracy Chapman,"['folk', 'lilith', 'singer-songwriter', ""women's music""]",1648750,72
-Wind Beneath My Wings,['rhythm game'],1284,5
-Mariah Carey,"['dance pop', 'pop', 'urban contemporary']",9553949,79
-Marc Cohn,['mellow gold'],93858,53
-Arrested Development,"['atl hip hop', 'conscious hip hop', 'hip hop', 'old school atlanta hip hop']",281179,49
-Toni Braxton,"['contemporary r&b', 'dance pop', 'r&b', 'urban contemporary']",3951267,63
-Sheryl Crow,"['lilith', 'new wave pop', 'permanent wave', 'pop rock', 'singer-songwriter']",1110369,66
-Hootie & The Blowfish,"['heartland rock', 'pop rock', 'post-grunge']",1085746,58
-LeAnn Rimes,"['contemporary country', 'country', 'country dawn', 'country road']",1321555,60
-Paula Cole,"['ectofolk', 'lilith', 'new wave pop', 'pop rock']",160180,48
-Lauryn Hill,"['alternative r&b', 'conscious hip hop', 'hip hop', 'neo soul', 'new jersey rap', 'r&b', 'soul']",2710651,72
-Christina Aguilera,"['dance pop', 'pop']",7930707,77
-Shelby Lynne,"['contemporary vocal jazz', 'ectofolk', 'folk', 'lilith']",53175,47
-Alicia Kets,"['neo soul', 'pop', 'r&b']",11274176,77
-Norah Jones,"['contemporary vocal jazz', 'jazz pop', 'vocal jazz']",3037159,73
-Evanescence,['alternative metal'],4228105,72
-Maroon 5,['pop'],40833918,85
-John Legend,"['neo soul', 'pop', 'pop soul', 'urban contemporary']",6577409,75
-Carrie Underwood,"['classic oklahoma country', 'contemporary country', 'country', 'country dawn', 'dance pop', 'pop']",5821763,70
-Amy Winehouse,"['british soul', 'neo soul']",8452990,75
-Adele,"['british soul', 'pop', 'pop soul', 'uk pop']",53476119,85
-Zac Brown Band,"['contemporary country', 'country', 'country road', 'modern country rock']",3695967,70
-Esperanza Spalding,"['contemporary vocal jazz', 'electric bass', 'jazz', 'jazz pop', 'vocal jazz']",370703,45
-Bon Iver,"['chamber pop', 'eau claire indie', 'indie folk', 'melancholia', 'modern rock']",3506223,76
-Fun.,"['baroque pop', 'metropopolis']",3078511,66
-Macklemore & Ryan Lewis,"['pop rap', 'seattle hip hop']",2123334,76
-Sam Smith,"['pop', 'uk pop']",23288123,83
-Meghan Trainor,"['hip pop', 'pop']",14385563,76
-Chance The Rapper,"['chicago rap', 'conscious hip hop', 'hip hop', 'pop rap', 'rap']",5917237,72
-Alessia Cara,"['canadian contemporary r&b', 'canadian pop', 'pop']",11722969,73
-Dua Lipa,"['dance pop', 'pop', 'uk pop']",42393246,87
-Billie Eilish,"['art pop', 'pop']",91283648,88
-Megan Thee Stallion,"['houston rap', 'pop', 'r&b', 'rap', 'trap queen']",8650907,80
-Olivia Rodrigo,['pop'],32901802,88
+artist,genre,followers,popularity
+Rickie Lee Jones,"['folk', 'singer-songwriter']",194186,44
+Christopher Cross,"['mellow gold', 'soft rock', 'yacht rock']",991746,63
+Sheena Easton,"['mellow gold', 'minneapolis sound', 'new romantic', 'new wave pop', 'soft rock']",663311,54
+Men At Work,"['album rock', 'australian rock', 'classic rock', 'hard rock', 'heartland rock', 'mellow gold', 'new romantic', 'new wave', 'new wave pop', 'rock', 'soft rock']",1213416,67
+Culture,"['new romantic', 'new wave', 'new wave pop', 'soft rock', 'synthpop']",1527866,63
+Cyndi Lauper,"['dance pop', 'new wave pop', 'permanent wave', 'soft rock']",2574782,71
+Sade,"['british soul', 'sophisti-pop']",3643971,73
+Bruce Hornsby & The Range,"['album rock', 'heartland rock', 'mellow gold', 'piano rock', 'singer-songwriter', 'soft rock']",394117,53
+Jody Watley,"['contemporary r&b', 'freestyle', 'minneapolis sound', 'new jack swing', 'quiet storm', 'urban contemporary']",310445,38
+Tracy Chapman,"['folk', 'lilith', 'singer-songwriter', ""women's music""]",1678918,73
+Milli Vanilli,"['freestyle', 'new jack swing', 'new wave pop']",372807,54
+Mariah Carey,"['dance pop', 'pop', 'urban contemporary']",9616883,78
+Marc Cohn,['mellow gold'],94357,53
+Arrested Development,"['atl hip hop', 'conscious hip hop', 'hip hop', 'old school atlanta hip hop']",283092,50
+Toni Braxton,"['contemporary r&b', 'dance pop', 'r&b', 'urban contemporary']",3966911,62
+Sheryl Crow,"['lilith', 'new wave pop', 'permanent wave', 'pop rock', 'singer-songwriter']",1121030,66
+Hootie & The Blowfish,"['heartland rock', 'pop rock', 'post-grunge']",1090535,58
+LeAnn Rimes,"['contemporary country', 'country', 'country dawn', 'country road']",1325772,60
+Paula Cole,"['ectofolk', 'lilith', 'new wave pop', 'pop rock']",161536,49
+Lauryn Hill,"['alternative r&b', 'conscious hip hop', 'hip hop', 'neo soul', 'new jersey rap', 'r&b']",2744151,72
+Christina Aguilera,"['dance pop', 'pop']",7978751,77
+Shelby Lynne,"['contemporary vocal jazz', 'ectofolk', 'folk', 'lilith']",53436,47
+Alicia Keys,"['neo soul', 'pop', 'r&b']",11356969,78
+Norah Jones,"['contemporary vocal jazz', 'jazz pop', 'vocal jazz']",3048657,73
+Evanescence,['alternative metal'],4266307,72
+Maroon 5,['pop'],40857077,85
+John Legend,"['neo soul', 'pop', 'pop soul', 'urban contemporary']",6604439,75
+Carrie Underwood,"['classic oklahoma country', 'contemporary country', 'country', 'country dawn', 'dance pop', 'pop']",5829247,70
+Amy Winehouse,"['british soul', 'neo soul']",8468998,75
+Adele,"['british soul', 'pop', 'pop soul', 'uk pop']",53899893,85
+Zac Brown Band,"['contemporary country', 'country', 'country road', 'modern country rock']",3706484,71
+Esperanza Spalding,"['contemporary vocal jazz', 'electric bass', 'jazz', 'jazz pop', 'vocal jazz']",372655,44
+Bon Iver,"['chamber pop', 'eau claire indie', 'indie folk', 'melancholia', 'modern rock']",3517464,75
+fun.,"['baroque pop', 'metropopolis']",3047263,66
+Macklemore & Ryan Lewis,"['pop rap', 'seattle hip hop']",2129539,76
+Sam Smith,"['pop', 'uk pop']",23334406,83
+Meghan Trainor,"['hip pop', 'pop']",14485619,76
+Chance The Rapper,"['chicago rap', 'conscious hip hop', 'hip hop', 'pop rap', 'rap', 'trap']",5921684,72
+Alessia Cara,"['canadian contemporary r&b', 'canadian pop', 'pop']",11714187,72
+Dua Lipa,"['dance pop', 'pop', 'uk pop']",42594980,88
+Billie Eilish,"['art pop', 'pop']",91987150,88
+Megan Thee Stallion,"['houston rap', 'pop', 'r&b', 'rap', 'trap queen']",8745010,79
+Olivia Rodrigo,['pop'],33615600,88

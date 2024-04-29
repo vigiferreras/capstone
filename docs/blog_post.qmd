@@ -872,7 +872,7 @@ This timeline shows us that a lot of artists had very long and successful career
 
 :::{.callout-tip}
 ## Tip: How to read the timelines
-- Each line on the timeline represents a differetn artists
+- Each line on the timeline represents a different artists
 - The star represents when an artist won the Best New Artist award
 - The purple dot in @fig-hot100s_timeline represents an instance when the artists appears on the Billboard Hot 100s chart
 - The green dot in @fig-vma_ama represents when an artist won an award they were nominated for, and the orange dot represents when an artist was nominated for an award. 

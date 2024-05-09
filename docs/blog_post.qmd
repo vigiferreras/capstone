@@ -832,7 +832,7 @@ Now aside from the simple techniques, I did have to do a little more thinking an
 
 The RIAA dataset also had me perform some extra steps to get it cleaned up. Aside from adjusting and combing the separated date columns, I also went ahead and renamed some of the award names. Any platinum or diamond award that has a value such as “2x, 3x, 4x, etc” in front of it was renamed to simply “multi-platinum” or “multi-diamond”. I did this so that it will be easier to visualize and understand. Furthermore, I created dummy variables for each of the awards types. 
 
-Lastly the Artist Genre dataset also had some extra steps to take care of during this stage. It should be well known that which the fast growth of music throughout the years, there has been an expansion of genres artists sing. In fact, many artists may be associated with more than one  genre. Due to this, for each artist the Spotify API gave me a list of genres associated with this artist. Now while it is important for artists to be labeled by their respective genre, in this project the subgenres are a little too specific. Therefore, the EDA section of my project will utilize the list of genres for each artist while the modeling part of the project I made the decision to generalize the sub genres they are associated with to the main genre they fall under. After adjusting their associated genre, I performed one-hot encoding to split each genre into a separate column in preparation for future modeling. 
+Lastly the Artist Genre dataset also had some extra steps to I had to take care of during this stage. It should be well known that with the fast growth of music throughout the years, there has been an expansion of genres in the music world. In fact, many artists may be associated with more than one genre. This can be seen in the genre dataset, as the genre column contained lists of genres that each artist is associated with. Due to this, I went ahead and created dummy variables for each genre in the list. This will also help for future modeling. 
 
 # Exploratory Data Analysis
 
@@ -878,7 +878,7 @@ plt.show()
 ```{python}
 
 #| label: fig-group_distribution
-#| fig-cap: "Distribution of the Best New Artist winners in Music Groups." 
+#| fig-cap: "Distribution of the Best New Artist winners in music groups." 
 #| echo: true
 
 # counting the number of music groups
@@ -1703,6 +1703,7 @@ American Music Awards/MTV Video Music Awards:
 After calculating the scores for each artist based on each feature, I noticed that some features had a much wider range of values than the others. To make sure all features contributed equally to the final score, I used a method called min-max normalization. This technique scales all scores to fit within the same range. Once the scores were normalized, I added them together to calculate each artist’s total success score. 
 
 ``` {python}
+#| output: false
 # creating df to be used for modeling
 # predictors: gender, music group, genre
 # target: total success score
@@ -1763,6 +1764,7 @@ I will create and compare the following regression models: Linear Regression, Su
 
 ## Modeling Performance
 ``` {python}
+#| output: false
 #| warning: false
 # predictors
 

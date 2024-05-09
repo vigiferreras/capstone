@@ -1,3 +1,9 @@
+''' In this file, I practiced getting my Spotify API token and getting the information needed)
+
+To produce the Spotify API code, I followed the Youtube video titled "How to Use Spotify's API with Python | Write a 
+Program to Display Artist, Tracks, and More" by Akamai Developer. 
+ '''
+
 from dotenv import load_dotenv
 import os
 import requests

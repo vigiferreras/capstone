@@ -22,13 +22,13 @@ jupyter: python3
 ![Source: Grammys.com](grammy_pic.jpeg)
 
 
-I am going to list five very different artists and I want you to try and figure out what these artists have in common: Evanescence, Cyndi Lauper, Victoria Monet, Carrie Underwood, and Arrested Development. This is a very challenging task but here is a hint: they have all won a similar music award. If your answer is that they all won a Grammy you are partially correct. These five artists are all recipients of the Grammy’s Best New Artist Award. 
+I am going to list five very different artists and I want you to try and figure out what these artists have in common: Evanescence, Cyndi Lauper, Victoria Monet, Carrie Underwood, and Arrested Development. This is a very challenging task but here is a hint: they have all won a similar music award. If your answer is that they all won a Grammy, you are partially correct. These five artists are all recipients of the Grammy’s Best New Artist Award. 
 
-Presented by the Recording Academy of the United States, the Grammy Awards show is one of the most prestigious award shows in the music industry. With over 90 awards recognizing the successes and talents of many individuals within the music industry, the Best New Artist award presented during the show draws a lot of allure due to the fact that it shines light towards talented new artists.
+Presented by the Recording Academy of the United States, the Grammy Awards show is one of the most prestigious award shows in the music industry. With over 90 awards recognizing the successes and talents of many individuals within the music industry, the Best New Artist award presented during the show draws a lot of attention due to the fact that it shines light towards talented new artists.
 
-Aside from the excitement and allurement associated with this ceremony and the awards given out, there is a dark mystery that is tied to the Grammys: the Best New Artist Curse. The curse has been a subject of debate for years, stating that winners of this award are cursed with a short-lived career, marked by a decline in successes, achievements, and relevancy. As an avid music listener and fan myself, I have been intrigued by this curse and have always questioned its validity. Do the successes of artists truly decrease after winning this award? Is there a way to predict the success trajectory of future Best New Artist winners? 
+Aside from the excitement associated with this ceremony and the awards given out, there is a dark mystery that is tied to the Grammys: the Best New Artist Curse. The curse has been a subject of debate for years [@curse_article], stating that winners of this award are cursed with a short-lived career, marked by a decline in successes, achievements, and relevancy. As an avid music listener and fan myself, I have been intrigued by this curse and have always questioned its validity. Do the successes of artists truly decrease after winning this award? Is there a way to predict the success trajectory of future Best New Artist winners? 
 
-To answer these questions I will be utilizing my data science knowledge and skills to analyze the post-award musical achievements of these artists and explore the potential for predicting an artist’s success. Without further-ado, follow me as I combine music and data to dissect the mysteries of the Best New Artist curse. 
+To answer these questions I will be utilizing my data science knowledge and skills to analyze the post-award musical achievements of these artists and explore the potential for predicting an artist’s success. Without further ado, follow me as I combine music and data to dissect the mysteries of the Best New Artist curse. 
 
 ```{python}
 
@@ -40,6 +40,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 import plotly.graph_objs as go
+import plotly.offline as py
+import plotly.express as px
+
 
 from wordcloud import WordCloud
 
@@ -56,7 +59,7 @@ from sklearn.model_selection import cross_val_score
 ```
 
 # Data Collection 
-Every Data Science project needs its data, therefore I went ahead and collected as much data as I can find publicly to investigate this curse. I went through a meticulous data collection process utilizing various methods:
+Every Data Science project needs its data, therefore I went ahead and collected as much data as I could find publicly to investigate this curse. I went through a meticulous data collection process utilizing various methods:
 
 ## Manual Data Entry
 Beginning with the focal point of the project, I used the Grammy’s official website to compile a list of Best New Artist winners spanning from 1980 to 2022 [@grammys_info]. To assess post-award activity, I used the IMDb.com website to collect information about music award wins and nominations from the MTV Video Music Awards [@vmas_info] and the American Music Awards [@amas_info], as well as the Recording Industry Association of America (RIAA) website to gather data regarding gold, platinum, and diamond awards [@riaa_info]. For all of these manual collections, I entered the data into a separate spreadsheet for each unique award. 
@@ -88,14 +91,8 @@ best_new_df.shape
 # dropping the first five columns (1980-1984 winners)
 best_new_df = best_new_df.drop(best_new_df.index[:5])
 
-# checking data types
-best_new_df.info()
-
 # updating the award_date column data type
 best_new_df['award_date'] = pd.to_datetime(best_new_df['award_date'])
-
-# checking the data types again 
-best_new_df.info()
 
 # checking for missing values
 best_new_df.isna().sum()
@@ -111,14 +108,9 @@ hot100_df.shape
 # dropping peak position
 hot100_df = hot100_df.drop('peak_position', axis = 'columns')
 
-# checking the data types
-hot100_df.info()
 
 # adjusting the data type of the week_of column
 hot100_df['week_of'] = pd.to_datetime(hot100_df['week_of'])
-
-# checking the data types again
-hot100_df.info()
 
 # checking the number of missing values
 hot100_df.isna().sum()
@@ -258,11 +250,13 @@ split_feats.columns = col_headers
 hot100_split4 = pd.concat([hot100_split3, split_feats], axis = 1)
 
 #END CITATION
+# ----------------------------
 
 # dropping the featured_artist_1 column
 hot100_split4 = hot100_split4.drop('featured_artist_1', axis = 'columns')
 
 # ----------------------------
+
 # START CITATION 
 
 # link/s below were used to help me generate the following code (reordering columns)
@@ -289,6 +283,7 @@ hot100_split4.columns = ['chart_week', 'rank', 'song_title', 'main_artist_1', 'm
 for col in hot100_split4.iloc[:, 2:]:
     hot100_split4[col] = hot100_split4[col].str.strip()
 
+# ----------------------------
 # START CITATION 
 # link/s below were used to help me generate the following code (selecting based on multiple conditions)
 
@@ -319,7 +314,7 @@ filtered_hot100 = hot100_split4[
 
 # filtered_hot100s copy
 filtered_hot100_copy = filtered_hot100
-
+# ----------------------------
 # START CITATION 
 
 # link/s below were used to help me generate the following code (.values(), .at())
@@ -366,8 +361,6 @@ plt.figure(figsize=(8, 6))
 sns.boxplot(data=filtered_hot100_copy, x='rank', orient='h', linewidth=2, color='lavender')
 plt.title("Box Plot For Hot 100's Rank Column")
 plt.ylabel('Rank')
-plt.show()
-
 
 # Cleaning the Artists Genre dataset 
 
@@ -390,9 +383,6 @@ artist_genres_df['genre'] = artist_genres_df['genre'].str[1:-1]
 # removing the quotations
 artist_genres_df['genre'] = artist_genres_df['genre'].str.replace("'", "")
 
-# checking data types 
-artist_genres_df.info()
-
 # Cleaning the MTV Video Music Awards Dataset
 
 vmas_awards = pd.read_csv('/Users/virginiaferreras/Desktop/capstone/data/vmas_winners_nominees2.csv')
@@ -401,6 +391,7 @@ vmas_awards_df = pd.DataFrame(vmas_awards)
 # making copy of the original vmas_awards_df
 vmas_copy = vmas_awards_df
 
+# ----------------------------
 # START CITATION 
 
 # link/s below were used to help me generate the following code (splitting columns and regular expressions)
@@ -414,6 +405,7 @@ vmas_copy[['main_artist', 'featured_artists']] = vmas_copy['artist_name'].str.sp
 
 # END CITATION
 # -----------------------
+# ----------------------------
 # START CITATION 
 
 # link/s below were used to help me generate the following code (splitting columns and regular expressions)
@@ -449,7 +441,8 @@ vmas_copy = pd.concat([vmas_copy, vmas_split2], axis=1)
 vmas_copy.reset_index(drop=True, inplace=True)
 
 # END CITATION
-
+# ----------------------------
+# ----------------------------
 # START CITATION 
 # link/s below were used to help me generate the following code (splitting columns and regular expressions)
 
@@ -481,10 +474,12 @@ vmas_split3.columns = col_headers
 vmas_copy = pd.concat([vmas_copy, vmas_split3], axis=1)
 
 # END CITATION
+# ----------------------------
 
 # dropping the three nnnecessary columns
 vmas_copy = vmas_copy.drop(['artist_name', 'featured_artists', 'main_artist'], axis = 'columns')
 
+# ----------------------------
 # START CITATION 
 # link/s below were used to help me generate the following code (striping whitespace)
 
@@ -494,7 +489,8 @@ for col in vmas_copy.iloc[:, 3:]:
     vmas_copy[col] = vmas_copy[col].str.strip()
 
 # END CITATION
-
+# ----------------------------
+# ----------------------------
 # START CITATION 
 # link/s below were used to help me generate the following code (selecting based on multiple conditions)
 
@@ -518,10 +514,12 @@ filtered_vmas = vmas_copy[
     (vmas_copy['featured_artist_6'].isin(selected_artists)) 
 ]
 # END CITATION
+# ----------------------------
 
 # making a copy of the filtered vmas dataset 
 filtered_vmas_copy = filtered_vmas
 
+# ----------------------------
 # START CITATION 
 
 # link/s below were used to help me generate the following code (.at() and .values())
@@ -552,14 +550,15 @@ for index, row in filtered_vmas_copy.iterrows():
             break  # stop searching
 
 # END CITATION
+# ----------------------------
 
 # reordering the columns and excluding main/featured split columns
 filtered_vmas_copy = filtered_vmas_copy.iloc[:, [16,0,1,2,14,15]]
 
-filtered_vmas_copy.info()
 
 filtered_vmas_copy['win'].unique()
 
+# ----------------------------
 # START CITATION 
 # link/s below were used to help me generate the following code
 
@@ -568,13 +567,13 @@ filtered_vmas_copy['win'].unique()
 # stripping white spaces from win column
 filtered_vmas_copy['win'] = filtered_vmas_copy['win'].str.strip()
 # END CITATION 
+# ----------------------------
 
 filtered_vmas_copy['win'].unique()
 
 # fixing the data type for the date column
 filtered_vmas_copy['date'] = pd.to_datetime(filtered_vmas_copy['date'])
 
-filtered_vmas_copy.info()
 
 # Cleaning the American Music Awards Dataset
 amas_awards = pd.read_csv('/Users/virginiaferreras/Desktop/capstone/data/ama_wins_nominees2.csv')
@@ -586,6 +585,7 @@ amas_awards_df.shape
 # copying the amas_awards_df
 amas_copy = amas_awards_df
 
+# ----------------------------
 # START CITATION 
 # link/s below were used to help me generate the following code 
 
@@ -615,12 +615,12 @@ amas_split.columns = col_headers
 amas_copy = pd.concat([amas_copy, amas_split], axis=1)
 
 # END CITATION
+# ----------------------------
 
 # dropping the artist_name column 
 amas_copy = amas_copy.drop('artist_name', axis = 1)
 
-amas_copy.info()
-
+# ----------------------------
 # START CITATION 
 # link/s below were used to help me generate the following code
 
@@ -630,7 +630,8 @@ amas_copy.info()
 for col in amas_copy.iloc[:, 3:]:
     amas_copy[col] = amas_copy[col].str.strip()
 # END CITATION
-
+# ----------------------------
+# ----------------------------
 # START CITATION 
 # link/s below were used to help me generate the following code (selecting based on multiple conditions)
 
@@ -651,10 +652,12 @@ filtered_amas = amas_copy[
 ]
 
 # END CITATION
+# ----------------------------
 
 # making a copy of the filtered_amas df
 filtered_amas_copy = filtered_amas
 
+# ----------------------------
 # START CITATION 
 # link/s below were used to help me generate the following code (.at(), .value())
 
@@ -676,11 +679,11 @@ for index, row in filtered_amas_copy.iterrows():
             break  # stop searching 
 
 # END CITATION
+# ----------------------------
 
 # reordering columns
 filtered_amas_copy = filtered_amas_copy.iloc[:, [9,0,1,2]]
 
-filtered_amas_copy.info()
 
 # changing the date data type to a datatime data type
 filtered_amas_copy['date'] = pd.to_datetime(filtered_amas_copy['date'])
@@ -688,7 +691,6 @@ filtered_amas_copy['date'] = pd.to_datetime(filtered_amas_copy['date'])
 # stripping white spaces from win column
 filtered_amas_copy['win'] = filtered_amas_copy['win'].str.strip()
 
-filtered_amas_copy.info()
 
 # Cleaning Recording Industry Association of America (RIAA) Awards dataset
 
@@ -698,6 +700,7 @@ riaa_awards_df = pd.DataFrame(riaa_awards)
 # making a copy of the riaa_awards_df
 riaa_copy = riaa_awards_df
 
+# ----------------------------
 # START CITATION 
 # link/s below were used to help me generate the following code (mapping the values to change df variable names)
 
@@ -723,12 +726,12 @@ month_num = {
 # mapping the award month to its respective number 
 riaa_copy['award_month'] = riaa_copy['award_month'].map(month_num)
 # END CITATION
-
-riaa_copy.info()
+# ----------------------------
 
 # changing the data type for the award month column 
 riaa_copy['award_month'] = pd.to_numeric(riaa_copy['award_month'])
 
+# ----------------------------
 # START CITATION 
 # link/s below were used to help me generate the following code
 
@@ -745,7 +748,8 @@ riaa_copy['award_date'] = pd.to_datetime(riaa_copy['award_date'])
 # dropping the original columns
 riaa_copy = riaa_copy.drop(['award_year', 'award_month', 'award_day'], axis=1)
 # END CITATION
-
+# ----------------------------
+# ----------------------------
 # START CITATION 
 # link/s below were used to help me generate the following code (regular expressions)
 
@@ -758,9 +762,9 @@ riaa_copy['award_type'] = riaa_copy['award_type'].str.replace(r'^(\d+)x\s*Platin
 # replacing any occurrence of '[number]x Diamond' with 'Multi Diamond'
 riaa_copy['award_type'] = riaa_copy['award_type'].str.replace(r'^(\d+)x\s*Diamond$', 'Multi Diamond', regex = True)
 # END CITATION
-
+# ----------------------------
+# ----------------------------
 # START CITATION 
-
 # link/s below were used to help me generate the following code (get dummy variables and renaming columns)
 
 # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.get_dummies.html
@@ -785,15 +789,14 @@ dummy_riaa_df = dummy_riaa_df.rename(columns = {'award_type_Gold': 'gold',
                                                 'award_type_Multi Platinum': 'multi_platinum',})
 
 # END CITATION
+# ----------------------------
 
 # stripping white spaces from artist column
 dummy_riaa_df['artist'] = dummy_riaa_df['artist'].str.strip()
 
-dummy_riaa_df.info()
-
 # Cleaning Artist Information dataset 
 
-artist_info = pd.read_csv('/Users/virginiaferreras/Desktop/capstone/data/artist_info_2.csv')
+artist_info = pd.read_csv('/Users/virginiaferreras/Desktop/capstone/data/artist_info.csv')
 artist_info_df = pd.DataFrame(artist_info)
 
 # looking at the unique values for the gender column 
@@ -813,8 +816,6 @@ artist_info_df['gender'].unique()
 
 # checking again
 artist_info_df['music_group'].unique()
-
-artist_info_df.info()
 ```
 
 With any data driven project, data preprocessing is a crucial step in creating your models and visualizations. For this project I went through each dataset and  performed the usual preprocessing techniques which included: 
@@ -848,12 +849,16 @@ Before delving into the analysis of these winners' success, lets breifly examine
 # counting the number of wins of each gender
 gender_counts = artist_info_df['gender'].value_counts()
 
+# ---------------------------
+# START CITATION
+# Code block below was learned from CMPS 240 class (Ramapo College of NJ)
+
 # creating the  bar chart
 plt.figure(figsize=(6, 4))
 
 gender_counts.plot(kind='bar', color=['mediumpurple','lightskyblue','burlywood'])
 
-plt.title('Grammys Best New Artist Award by Gender', 
+plt.title('Distribution of Grammys Best New Artist Award by Gender', 
           fontsize = 15, 
           fontweight = 'bold')
 
@@ -863,10 +868,11 @@ plt.xlabel('Gender', fontsize = 12,
 plt.ylabel('Number of Awards', fontsize = 12, 
            fontweight='bold')
 
-plt.xticks(rotation=0)  # Rotate x-axis labels if necessary
+plt.xticks(rotation=0)
 plt.tight_layout()
 
 plt.show()
+# END CITATION
 ```
 
 ```{python}
@@ -877,6 +883,9 @@ plt.show()
 
 # counting the number of music groups
 group_counts = artist_info_df['music_group'].value_counts()
+
+# START CITATION
+# Code block below was learned from CMPS 240 class (Ramapo College of NJ)
 
 # creating the bar chart
 plt.figure(figsize=(6, 4))
@@ -894,10 +903,11 @@ plt.xlabel('Music Group',
 plt.ylabel('Count', 
            fontsize = 12, 
            fontweight = 'bold')
-plt.xticks(rotation=0)  # Rotate x-axis labels if necessary
+plt.xticks(rotation=0) 
 plt.tight_layout()
 
 plt.show()
+# END CITATION
 ```
 
 According to the @fig-gender_distribution, it is evident that female artists dominate the Grammys' Best New Artist award, followed by male artists. The "both" catergory represents bands that includes memebrs of both genders. Similarly, @fig-group_distribution tells us that solo artists tend to win these awards over music groups. 
@@ -909,34 +919,35 @@ While this observation does not relate to my initial research question, it is in
 ```{python}
 
 #| label: fig-word_cloud
-#| fig-cap: "Timeline of when each Best New Artist won or was nominated for a VMA or AMA award" 
+#| fig-cap: "Common genres associated with the Best New Artist winners" 
 #| echo: true
 
+# if you havent already, this package needs to be installed to create the work cloud
+# pip install WordCloud
+
 # creating word cloud to visualize genre popularity
+
+# START CITATION 
+
+# link/s below were used to help me generate the following code (replace text in string, .join)
+
+# https://stackoverflow.com/questions/28986489/how-to-replace-text-in-a-string-column-of-a-pandas-dataframe
+# https://www.programiz.com/python-programming/methods/string/join
 
 # replacing any instance of hip hop with hip-hop. This will help keep the words connected
 artist_genres_df['genre'] = artist_genres_df['genre'].str.replace('hip hop', 'hip-hop')
 
-# combining the genre row into one single string and ignoring the commas
-text_data = ' '.join(artist_genres_df['genre'].str.replace(',', '').values)
+# combining the words in each genre string into a single genre string,
+# example: canadian contemporary = canadiancontemporary; hip pop = hippop
+# removing spaces, hyphensm and replacing "r&b" with "rhythmblues"
+text_data = ' '.join(artist_genres_df['genre'].str.replace(' ', '').str.replace('-', '').str.replace('r&b', 'rhythmblues').str.replace(',', ' ').values)
+# END CITATION
+# -----------------------------
+# -----------------------------
+# START CITATION 
+# link/s below were used to help me generate the following code (word cloud)
 
-# ensuring hiphop is connected 
-text_data = text_data.replace('hip-hop', 'hiphop')
-
-# & is not picked up in the word cloud
-# renaming r&b to rhythmblues to ensure it is represented properly in the word cloud
-text_data = text_data.replace('r&b', 'rhythmblues')
-
-# ensuring neo soul is connected
-text_data = text_data.replace('neo soul', 'neosoul')
-
-# combining the genre row into one single string,
-# removing commas too
-text_data = ' '.join(artist_genres_df['genre'].str.replace(',', '').values)
-
-# combining the words in each genre string into a single string,
-# removing spaces, hyphens and replacing "r&b" with "rhythmblues"
-text_data = ' '.join(artist_genres_df['genre'].str.replace(' ', '').str.replace('', '').str.replace('-', '').str.replace('r&b', 'rhythmblues').str.replace(',', ' ').values)
+# https://www.datacamp.com/tutorial/wordcloud-python
 
 # creating the wordcloud 
 wordcloud = WordCloud(width = 800, 
@@ -945,13 +956,15 @@ wordcloud = WordCloud(width = 800,
                       colormap = 'twilight', 
                       random_state = 30).generate(text_data)
 
-# Display the word cloud
+# displaying word cloud
 plt.figure(figsize = (8, 6))
 plt.imshow(wordcloud, 
            interpolation = 'bilinear')
 plt.axis('off')
 
 plt.show()
+# END CITATION
+
 ```
 
 Next up, since each artist is associated with several different genres, I want to visualize the most common genres that are shared by these Best New Artist winners. While this information is not directly appicable to my research question, it is interesting to see what genres tend to dominant the Best New Artist award. Based on @fig-word_cloud, we can see that some of the most popular genres include: dance pop, pop, urban contemporary, new wave pop, and rhythm and blues (R&B). 
@@ -961,72 +974,84 @@ In order to really investigate whether the success of an artist decreases after 
 
 These timelines will allow us to view how active and relevant each artist was after winning their Best New Artist Award.
 
+:::{.callout-tip}
+## Tip: How to read the timelines
+- Each line on the timeline represents a different artists
+- The star represents when an artist won the Best New Artist award
+- The purple dot in @fig-hot100s_timeline represents an instance when the artists appears on the Billboard Hot 100s chart
+- The green dot in @fig-vma_ama represents when an artist won an award they were nominated for, and the orange dot represents when an artist was nominated for an award. 
+:::
+
+```{python}
+#| output: false
+
+# grouping the countries and counting the artists from that country
+
+country_count = artist_info_df['birth_country'].value_counts()
+
+country_count_df = pd.DataFrame(country_count)
+
+country_count_df = country_count_df.reset_index()
+
+artist_info_df['birth_country'].unique()
+# ---------------------------
+# START CITATION 
+
+# link/s below were used to help me generate the following code (creating and customizing the bar char)
+
+# https://python-graph-gallery.com/3-control-color-of-barplots/
+# https://stackoverflow.com/questions/11264521/date-ticks-and-rotation
+
+color = ['lightblue', 'blue', 'purple', 'red', 'orange', 'pink', 'green', 'yellow']
+
+# Create bars
+fig, ax = plt.subplots()
+ax.bar(country_count_df['birth_country'], country_count_df['count'],
+       color=color,
+       linewidth=3)
+
+ax.tick_params(axis='x', rotation=75)
+
+plt.title('Best New Artist Grammy Winners by Country', 
+          fontsize = 15, 
+          fontweight = 'bold')
+
+plt.xlabel('Country', 
+           fontsize = 12, 
+           fontweight = 'bold')
+
+plt.ylabel('Count', 
+           fontsize = 12, 
+           fontweight = 'bold')
+
+# END CITATION
+
+```
+
 ```{python}
 
 #| label: fig-vma_ama
 #| fig-cap: "Timeline depicting when each Best New Artist won or was nominated for a MTV Video Music Award (VMA) or American Music Award (AMA) in relation to their Grammy Best New Artist win." 
 #| warning: false
 
+# ---------------------------
+# START CITATION 
+# link/s below were used to help me generate the following code ()
+
+# (creating scatter plot) https://plotly.com/python/line-and-scatter/
+# (add multiple traces in one plot) https://stackoverflow.com/questions/72349796/add-a-plotly-express-trace-to-a-graph-objects-go-figure-with-multiple-traces
+# (plotly.go parameters) https://plotly.com/python-api-reference/generated/plotly.graph_objects.Scatter.html
+# (Hover text) https://stackoverflow.com/questions/59057881/how-to-customize-hover-template-on-with-what-information-to-show
+# (removign trace name) https://community.plotly.com/t/how-to-remove-the-trace0-and-trace-1-boxes-when-hovering-over-pie-charts-in-subplot/76302/2
+# (date) https://plotly.github.io/plotly.py-docs/generated/plotly.graph_objects.Waterfall.html
+
+
 # creating a plotly figure
 fig = go.Figure()
 
-# this part will create the info I want to display in the hover text box for each dataset I use
+# creating the scatter plot timeline 
 
-# creating empty list for VMAs
-hover_text_vmas = []
-
-# interating through filtered vmas df
-for index, row in filtered_vmas_copy.iterrows():
-    
-    # checking win column for each artist
-    outcome = 'Winner' if row['win'] == 'Yes' else 'Nominee'
-    
-    date = row['date'].strftime("%Y-%m-%d")
-    
-    # concatenating the information in the hover text
-    text = f"Artist Name: {row['artist']}<br>" \
-       f"Award Name: {row['award_category']}<br>" \
-       f"Date: {date}<br>" \
-       f"Outcome: {outcome}"
-    
-    # appending text to list
-    hover_text_vmas.append(text)
-
-# creating empty list for AMAs    
-hover_text_amas = []
-for index, row in filtered_amas_copy.iterrows():
-    
-    # checking win column for each artist
-    outcome = 'Winner' if row['win'] == 'Yes' else 'Nominee'
-    
-    date = row['date'].strftime("%Y-%m-%d")
-    
-    # concatenating the information in the hover text
-    text = f"Artist Name: {row['artist']}<br>" \
-          f"Award Name: {row['award_name']}<br>" \
-          f"Date: {date}<br>" \
-          f"Outcome: {outcome}"
-    
-    
-    # appending text to list
-    hover_text_amas.append(text)    
-
-# creating empty list for Best New Artist win
-hover_text_best = []
-for index, row in best_new_df.iterrows():
-    
-    date = row['award_date'].strftime("%Y-%m-%d")
-    
-    # no need to check wins, as these winners already did win the award
-    text = f"Best New Artist: {row['artist']}<br>" \
-           f"Date: {date}<br>" 
-    
-    # appending text to list
-    hover_text_best.append(text)        
-    
-# creating the timeline 
-
-# scatter markers for Best New Artist Win
+# scatter points for Best New Artist Win
 fig.add_trace(go.Scatter(x = best_new_df['award_date'], 
                          y = best_new_df['artist'],
                          mode = 'markers', 
@@ -1035,12 +1060,12 @@ fig.add_trace(go.Scatter(x = best_new_df['award_date'],
                                      symbol = 'star', 
                                      size = 20, 
                                      color = 'gold'),
-                         name ='Best New Artist Win', 
-                         hoverinfo ='text',
-                         text = hover_text_best))
-
-
-# scatter markers for VMA awards
+                         name = 'Best New Artist',
+                         hovertemplate = 'Artist: %{y}'+'<br>Date: %{x|%Y-%m-%d} <extra></extra>',
+                        ))
+    
+    
+# scatter points for VMA awards
 fig.add_trace(go.Scatter(x = filtered_vmas_copy['date'], 
                          y = filtered_vmas_copy['artist'],
                          mode = 'markers', 
@@ -1049,11 +1074,12 @@ fig.add_trace(go.Scatter(x = filtered_vmas_copy['date'],
                                      size = 10, 
                                      color = 'darkorange'),
                          opacity = 0.9,
-                         name = 'VMA Win or Nomination', 
-                         hoverinfo = 'text',
-                         text = hover_text_vmas))
+                         name = 'VMA Win/Nomination',
+                         hovertemplate = 'Artist Name: %{y}'+'<br>Date: %{x|%Y-%m-%d} <extra></extra>'
+        
+                        ))
 
-# scatter markers for AMA awards
+# scatter points for AMA awards
 fig.add_trace(go.Scatter(x = filtered_amas_copy['date'],
                          y = filtered_amas_copy['artist'],
                          mode = 'markers', 
@@ -1062,49 +1088,50 @@ fig.add_trace(go.Scatter(x = filtered_amas_copy['date'],
                                      size = 10, 
                                      color = 'limegreen'),
                          opacity = 0.9,
-                         name = 'AMA Win or Nomination', 
-                         hoverinfo = 'text',
-                         text = hover_text_amas))
+                         name = 'AMA Win/Nomination',
+                         hovertemplate = 'Artist: %{y}'+'<br>Date: %{x|%Y-%m-%d} <extra></extra>'
+                        ))
 
 fig.update_layout(width = 800, 
-                  height = 600, 
-                  plot_bgcolor='lightgray',
-                  title='Awards Received by Artists',
-                  title_font=dict(size=20, family='Arial, sans serif'),
-                  xaxis=dict(title='Date',
-                             title_font=dict(size=15, family='Helvetica, sans-serif'),
-                             tickfont=dict(size=10)),
-                  yaxis=dict(title='Artist',
-                             title_font=dict(size=15, family='Helvetica, sans-serif'),
-                             tickfont=dict(size=10),
-                             autorange="reversed"),
-                  legend=dict(font=dict(size=10))
+                  height = 600,
+                  plot_bgcolor = 'lightgray',
+                  title = 'Awards Received by Artists',
+                  title_font = dict(size = 20, family = 'Arial, sans serif'),
+                  xaxis = dict(title='Date', 
+                             title_font = dict(size = 15, family = 'Helvetica, sans-serif'),
+                             tickfont = dict(size = 10)),
+                  yaxis = dict(title ='Artist',
+                             title_font = dict(size = 15, family = 'Helvetica, sans-serif'), 
+                             tickfont = dict(size =10), 
+                             autorange ="reversed"), 
+                  legend = dict(font = dict(size = 10))
                  )
 
 py.iplot(fig)
 ```
 
 ``` {python}
-
 #| label: fig-hot100s_timeline
 #| fig-cap: "Timeline of Best New Artist wins and Billboard Hot 100s entries." 
 #| warning: false
 
+#------------------------
+# START CITATION 
+# link/s below were used to help me generate the following code ()
+
+# (creating scatter plot) https://plotly.com/python/line-and-scatter/
+# (add multiple traces in one plot) https://stackoverflow.com/questions/72349796/add-a-plotly-express-trace-to-a-graph-objects-go-figure-with-multiple-traces
+# (plotly.go parameters) https://plotly.com/python-api-reference/generated/plotly.graph_objects.Scatter.html
+# (Hover text) https://stackoverflow.com/questions/59057881/how-to-customize-hover-template-on-with-what-information-to-show
+# (removign trace name) https://community.plotly.com/t/how-to-remove-the-trace0-and-trace-1-boxes-when-hovering-over-pie-charts-in-subplot/76302/2
+# (date) https://plotly.github.io/plotly.py-docs/generated/plotly.graph_objects.Waterfall.html
+
+import plotly.io as pio
+
+# creating Plotly graph objects figure
 fig = go.Figure()
 
-hover_text_best = []
-for index, row in best_new_df.iterrows():
-    
-    date = row['award_date'].strftime("%Y-%m-%d")
-    
-    # no need to check wins, as these winners already did win the award
-    text = f"Best New Artist: {row['artist']}<br>" \
-           f"Date: {date}<br>" 
-    
-    # appending text to list
-    hover_text_best.append(text)  
-
-# scatter markers for Best New Artist Win
+# scatter points for Best New Artist Win
 fig.add_trace(go.Scatter(x = best_new_df['award_date'], y = best_new_df['artist'],
                          mode = 'markers', marker = dict(line = dict(width = 2,
                                                                  color = 'black'),
@@ -1112,23 +1139,9 @@ fig.add_trace(go.Scatter(x = best_new_df['award_date'], y = best_new_df['artist'
                                                      size = 20, 
                                                      color = 'gold'),
                          name = 'Best New Artist Win', 
-                         hoverinfo = 'text',
-                         text = hover_text_best))
-
-
-hover_text_hot100 = []
-for index, row in filtered_hot100_copy.iterrows():
+                         hovertemplate = 'Artist: %{y}'+'<br>Date: %{x} <extra></extra>'))
     
-    date = row['chart_week'].strftime("%Y-%m-%d")
-    
-    # no need to check wins, as these winners already did win the award
-    text = f"Artist Name: {row['artist']}<br>" \
-           f"Billboard Hot 100s Chart Week: {date}<br>" 
-    
-    # appending text to list
-    hover_text_hot100.append(text)  
-    
-# scatter markers for hot 100s df
+# scatter points for hot 100s df
 fig.add_trace(go.Scatter(x = filtered_hot100_copy['chart_week'], 
                          y = filtered_hot100_copy['artist'],
                          mode ='markers', 
@@ -1137,8 +1150,7 @@ fig.add_trace(go.Scatter(x = filtered_hot100_copy['chart_week'],
                                      size = 10, 
                                      color = 'purple'),
                          name = 'Charted Song',
-                         hoverinfo = 'text',
-                         text = hover_text_hot100))
+                         hovertemplate = 'Artist: %{y}'+'<br>Date: %{x} <extra></extra>'))
 
 fig.update_layout(width = 800, 
                   height = 600, 
@@ -1156,8 +1168,9 @@ fig.update_layout(width = 800,
                                autorange ="reversed"),
                   legend = dict(font = dict(size = 10))
                  )
-
 py.iplot(fig)
+
+# END CITATION
 ```
 
 Both timelines yield very similar conclusions that challenged the speculation that winning the Best New Artist award leads to an unsuccessful or inactive careers. @fig-vma_ama displays the award and nomination activity for each artist along with the date they won the Best New Artist Award, which offers us insights inot their post-Grammy recognition. Reviewing both wins and nominations allows us to figure out if these artists continue to be celebrated for their music. While some artists indeed fade away from prominence after their Grammy win (such as Jody Watley, Esperanza Spalding, Macklemore & Ryan Lewis), others contine to receive acclaim (such as Mariah Carey, Alicia Keys, Carrie Underwood, Maroon 5). 
@@ -1166,22 +1179,122 @@ Both timelines yield very similar conclusions that challenged the speculation th
 
 This timeline shows us that a lot of artists had very long and successful careers post-award win. For example Mariah Carey can be seen to have a very long and consistent career after being named the Best New Artist in 1991. This timeline shows us that not every artist’s career deteriorated after winning the Best New Artist Award. Many artists are either still relevant today, as they are still being seen on the charts, or have generally had a long career, such as Toni Braxton and Christina Aguilera. While there are artists who did suffer landing on the charts post win, this may not be the work of the Best New Artist curse, rather it may just be due to coincidence or more personal reasons. This timeline helps prove that this curse is simply just a myth, and that not all of the artists who win the award suffer career decline. 
 
-:::{.callout-tip}
-## Tip: How to read the timelines
-- Each line on the timeline represents a different artists
-- The star represents when an artist won the Best New Artist award
-- The purple dot in @fig-hot100s_timeline represents an instance when the artists appears on the Billboard Hot 100s chart
-- The green dot in @fig-vma_ama represents when an artist won an award they were nominated for, and the orange dot represents when an artist was nominated for an award. 
-:::
 
 # Predicting Success
 Despite the limitations of a fairly small dataset, I want to attempt to make a model that can predict the success of an artist after winning the Best New Artist Award. Now, you might be wondering, how exactly am I going to predict the success of an artist? Well the answer lies in creating my own unique success metric.
 
+``` {python}
+#| output: false
+#hot100 songs count:
+
+hot100s_count = filtered_hot100_copy['artist'].value_counts()
+
+hot100s_count_df = pd.DataFrame({'num_on_chart':hot100s_count})
+
+hot100s_count_df = hot100s_count_df.reset_index()
+# ----------------------
+
+# START CITATION 
+# link/s below were used to help me generate the following code (horizontal bar plot)
+
+# https://www.geeksforgeeks.org/matplotlib-pyplot-barh-function-in-python/
+
+# sorting the hot100s_count in descending order
+hot100s_count_sorted = hot100s_count.sort_values(ascending=True)
+
+# Create a horizontal bar chart of the total Hot100s song received by each artist
+plt.figure(figsize=(10, 8))
+plt.barh(hot100s_count_sorted.index, hot100s_count_sorted, color='mediumvioletred')
+
+plt.title('Total Number of Charted Songs by Artist', 
+          fontsize = 20, 
+          fontweight = 'bold')
+
+plt.xlabel('Total Number of Songs', 
+           fontsize = 15, 
+           fontweight = 'bold')
+
+plt.ylabel('Artist', 
+           fontsize = 15, 
+           fontweight = 'bold')
+
+plt.tight_layout()
+
+# END CITATION
+
+# -----------------------
+# START CITATION 
+
+# link/s below were used to help me generate the following code (.groupby() and value counts)
+
+# https://stackoverflow.com/questions/39132742/groupby-value-counts-on-the-dataframe-pandas
+
+#vmas count:
+
+vmas_count = filtered_vmas_copy.groupby(['artist', 'win']).size().unstack(fill_value = 0)
+
+# updating the column headers to reflect whetehr the artist won or lost
+vmas_count.columns = ['vmas_lost', 'vma_win']
+
+vmas_count.reset_index()
+
+amas_count = filtered_amas_copy.groupby(['artist', 'win']).size().unstack(fill_value = 0)
+
+# updating the column headers to reflect whetehr the artist won or lost
+amas_count.columns = ['amas_lost', 'amas_win']
+
+amas_count.reset_index()
+
+# END CITATION
+
+# reading only the last five columns of the dummy riaa df
+last_five_cols = dummy_riaa_df.iloc[:, -5:]
+
+# grouping by artist and adding the values in the last five columns for each artist
+riaa_counts = last_five_cols.groupby(dummy_riaa_df['artist']).sum()
+
+# adding columns with the overall total amount of RIAA awards an artist received
+riaa_counts['total'] = riaa_counts.sum(axis=1)
+
+# sorting the riaa_counts in descending order
+riaa_counts_sorted = riaa_counts.sort_values(by='total', ascending=True)
+
+# START CITATION 
+# link/s below were used to help me generate the following code (horizonatal, stacked bar plot)
+
+# https://www.geeksforgeeks.org/matplotlib-pyplot-barh-function-in-python/
+
+# dropping the total column as it is not needed for this dataframe
+riaa_counts_sorted = riaa_counts_sorted.drop(columns = 'total')
+
+legend_labels = ['Diamond', 'Gold', 'Multi-Diamond', 'Multi-Platinum', 'Platinum']
+
+plt.figure(figsize=(20, 15))
+
+riaa_counts_sorted.plot(kind='barh', stacked=True)
+plt.title('RIAA Awards Received by Artists', fontsize = 45, fontweight = 'bold')
+plt.xlabel('Number of Awards', fontsize = 30, fontweight = 'bold')
+plt.ylabel('Artist', fontsize = 30, fontweight = 'bold')
+plt.xticks(fontsize=25)  # Adjust x-axis tick labels font size
+plt.yticks(fontsize=25)
+plt.legend(legend_labels, title='Award Type', loc='lower right', title_fontsize = 25, fontsize = 25)
+plt.subplots_adjust(right=0.5)  # Increase space on the right side for the legend
+
+plt.tight_layout(rect=[6, 5,10, 10])
+
+```
+
+
 ## Quantifying Success
 ``` {python}
-
+#| output: false
 # Artists excluded due to lack of information
 excluded_artists = ['Olivia Rodrigo', 'Megan Thee Stallion', 'Billie Eilish', 'Dua Lipa']
+# ---------------------------
+# START CITATION 
+# link/s below were used to help me generate the following code (.dateoffset)
+
+# https://pandas.pydata.org/docs/reference/api/pandas.tseries.offsets.DateOffset.html
 
 # Calculating the Billboard Hot 100s Score
 
@@ -1189,9 +1302,20 @@ excluded_artists = ['Olivia Rodrigo', 'Megan Thee Stallion', 'Billie Eilish', 'D
 merged_df = pd.merge(filtered_hot100_copy, best_new_df, on='artist', how='inner')
 
 # filtering the singles within five years after the award date
+# the chart week date must be in the artist's best new artist win date AND five years after 
+# their best new artist win date. 
 filtered_df = merged_df[(merged_df['chart_week'] >= merged_df['award_date']) &
                         (merged_df['chart_week'] <= merged_df['award_date'] + pd.DateOffset(years=5))]
 
+# END CITATION
+# ----------------------------
+# START CITATION 
+# link/s below were used to help me generate the following code
+
+# https://pandas.pydata.org/docs/dev/reference/api/pandas.concat.html (concataneting row to df)
+# https://www.geeksforgeeks.org/how-to-add-one-row-in-an-existing-pandas-dataframe/ (adding row to df)
+
+# scoring each artist
 billboard_scores_df = pd.DataFrame(columns = ['artist', 'billboard_score'])
 
 # score variable 
@@ -1218,10 +1342,11 @@ for index, row in filtered_df.iterrows():
         else:
             score += 1
             
+    # not main artist        
     else:
         score += 1
     
-    # adding the score to the df
+    #adding the score to the df
     if row['artist'] in billboard_scores_df['artist'].values:
         
         billboard_scores_df.loc[billboard_scores_df['artist'] == row['artist'], 'billboard_score'] += score
@@ -1232,17 +1357,29 @@ for index, row in filtered_df.iterrows():
         billboard_scores_df = pd.concat([billboard_scores_df, new_row], ignore_index = True)
         
     # resetting score variable
-    score = 0   
+    score = 0      
 
-# merging wihth the best_new_df to display all the Best New Artists
+# END CITATION 
+#----------------------
+
+
+# merging with the best_new_df to display all the Best New Artists and their respective score
 merged_billboard_scores = pd.merge(best_new_df, billboard_scores_df, on = 'artist', how = 'left')
+
+merged_billboard_scores['billboard_score'] = merged_billboard_scores['billboard_score'].fillna(0)
 
 # filling in missing values with 0
 merged_billboard_scores['billboard_score'] = merged_billboard_scores['billboard_score'].fillna(0)
 
 # changing billboard score column data type to integer
-
 merged_billboard_scores['billboard_score'] = merged_billboard_scores['billboard_score'].astype('int64')
+
+#----------------------
+# START CITATION 
+# link/s below were used to help me generate the following code (excluding values in df based on specific conditions)
+
+# https://stackoverflow.com/questions/71142985/exclude-values-in-df-column
+# https://stackoverflow.com/questions/55330568/how-to-exclude-rows-based-on-multi-column-value-conditions-in-pandas-dataframe
 
 # creating df without the excluded artists
 filter_billboard_scores = merged_billboard_scores[~merged_billboard_scores['artist'].isin(excluded_artists)]
@@ -1250,36 +1387,60 @@ filter_billboard_scores = merged_billboard_scores[~merged_billboard_scores['arti
 filter_billboard_scores = filter_billboard_scores.reset_index()
 
 filter_billboard_scores = filter_billboard_scores.drop(columns = 'index')
+# END CITATION 
+# -----------------------
 
 # VMAS Sccore
 
 # merging 'filtered_vmas_copy' with 'best_new_df' on the 'artist' column
 merged_vmas = pd.merge(filtered_vmas_copy, best_new_df, on='artist', how='inner')
 
+# --------------------------
+# START CITATION 
+# link/s below were used to help me generate the following code (.dateoffset)
+
+# https://pandas.pydata.org/docs/reference/api/pandas.tseries.offsets.DateOffset.html
 
 # filtering the singles within five years after the award date
 five_yr_vmas = merged_vmas[(merged_vmas['date'] >= merged_vmas['award_date']) &
                         (merged_vmas['date'] <= merged_vmas['award_date'] + pd.DateOffset(years=5))]
+# END CITATION
+# ---------------------------
 
 # checking to see if any artists are condiered featured artists in the df
 five_yr_vmas['featured_artist'].unique()
 
+# START CITATION 
+# link/s below were used to help me generate the following code
+
+# https://stackoverflow.com/questions/39132742/groupby-value-counts-on-the-dataframe-pandas (groupby value counts)
+
 # counting the number of wins and losses
 vmas_count = five_yr_vmas.groupby(['artist', 'win']).size().unstack(fill_value = 0)
+# END CITATION
+# --------------------
 
+# renaming headers
 vmas_count.columns = ['vmas_lost', 'vmas_win']
 
 vmas_count.reset_index()
 
 # merging the count with the best_new_df
-
 counts_vmas_merge = pd.merge(best_new_df, vmas_count, on = 'artist', how = 'left')
 
+# changing data types anf filling in missing values 
 counts_vmas_merge['vmas_lost'] = counts_vmas_merge['vmas_lost'].fillna(0).astype('int64')
 
 counts_vmas_merge['vmas_win'] = counts_vmas_merge['vmas_win'].fillna(0).astype('int64')
 
-# creating dd without the excluded artists
+# START CITATION 
+# link/s below were used to help me generate the following code (excluding values in df based on specific conditions)
+
+# https://stackoverflow.com/questions/71142985/exclude-values-in-df-column
+# https://stackoverflow.com/questions/55330568/how-to-exclude-rows-based-on-multi-column-value-conditions-in-pandas-dataframe
+
+
+# creating df without the excluded artists
 filter_vmas_five = counts_vmas_merge[~counts_vmas_merge['artist'].isin(excluded_artists)]
 
 filter_vmas_five = filter_vmas_five.reset_index()
@@ -1289,7 +1450,8 @@ filter_vmas_five = filter_vmas_five.drop(columns = 'index')
 filter_vmas_five['vmas_lost'] = filter_vmas_five['vmas_lost']
 
 filter_vmas_five['vmas_win'] = filter_vmas_five['vmas_win']
-
+# END CITATION
+# _________________
 
 # finding overall score
 vmas_score_list = []
@@ -1307,25 +1469,48 @@ filter_vmas_five['vmas_score'] = vmas_score_list
 # merging 'filtered_amas_copy' with 'best_new_df' on the 'artist' column
 merged_amas = pd.merge(filtered_amas_copy, best_new_df, on='artist', how='inner')
 
+# START CITATION 
+# link/s below were used to help me generate the following code (.dateoffset)
+
+# https://pandas.pydata.org/docs/reference/api/pandas.tseries.offsets.DateOffset.html
 
 # filtering the singles within five years after the award date
 five_yr_amas = merged_amas[(merged_amas['date'] >= merged_amas['award_date']) &
                         (merged_amas['date'] <= merged_amas['award_date'] + pd.DateOffset(years=5))]
+
+# END CITATION
+# -------------------------
+# START CITATION 
+# link/s below were used to help me generate the following code (groupby, value counts)
+
+# https://stackoverflow.com/questions/39132742/groupby-value-counts-on-the-dataframe-pandas
 
 # counting wins and losses
 amas_count = five_yr_amas.groupby(['artist', 'win']).size().unstack(fill_value = 0)
 
 amas_count.columns = ['amas_lost', 'amas_win']
 
+# END CITATION
+# -------------------------
+
 # merging the best_new df with the wins/losses count df 
 counts_amas_five = pd.merge(best_new_df, amas_count, on = 'artist', how = 'left')
 
-# filled in missing values with 0
+# filled in missing values with zero
 counts_amas_five['amas_lost'] = counts_amas_five['amas_lost'].fillna(0)
 counts_amas_five['amas_win'] = counts_amas_five['amas_win'].fillna(0)
 
+# ----------------------------
+# START CITATION 
+# link/s below were used to help me generate the following code (excluding values in df based on specific conditions)
+
+# https://stackoverflow.com/questions/71142985/exclude-values-in-df-column
+# https://stackoverflow.com/questions/55330568/how-to-exclude-rows-based-on-multi-column-value-conditions-in-pandas-dataframe
 # creating df without the excluded artists
 filter_amas_five = counts_amas_five[~counts_amas_five['artist'].isin(excluded_artists)]
+
+# END CITATION 
+# -----------------
 
 filter_amas_five = filter_amas_five.reset_index()
 
@@ -1351,10 +1536,18 @@ filter_amas_five['amas_score'] = amas_score_list
 # merging 'dummy_riaa_df' with 'best_new_df' on the 'artist' column
 merged_riaa = pd.merge(dummy_riaa_df, best_new_df, on='artist', how='inner', suffixes = ('_riaa', '_bestnew'))
 
+# ------------------------
+# START CITATION 
+# link/s below were used to help me generate the following code (.dateoffset)
+
+# https://pandas.pydata.org/docs/reference/api/pandas.tseries.offsets.DateOffset.html
 
 # filtering the songs within five years after the award date
 five_yr_riaa = merged_riaa[(merged_riaa['award_date_riaa'] >= merged_riaa['award_date_bestnew']) &
                         (merged_riaa['award_date_riaa'] <= merged_riaa['award_date_bestnew'] + pd.DateOffset(years=5))]
+
+# END CITATION
+# ------------------
 
 # reading the last five columns of the dummy riaa df
 last_five_cols = dummy_riaa_df.iloc[:, -5:]
@@ -1369,18 +1562,34 @@ counts_riaa_five = pd.merge(best_new_df, riaa_counts, on = 'artist', how = 'left
 
 columns = ['diamond', 'gold', 'multi_diamond', 'multi_platinum', 'platinum']
 
+# START CITATION 
+# link/s below were used to help me generate the following code: (filling in missing values)
+
+# https://stackoverflow.com/questions/36556256/how-do-i-fill-na-values-in-multiple-columns-in-pandas 
+
 counts_riaa_five[columns] = counts_riaa_five[columns].fillna(0)
+
+# END CITATION
+# -------------------
 
 # adjusting data type
 counts_riaa_five[columns] = counts_riaa_five[columns].astype('int64')
 
-# creating df without the excluded artists
+# -------------------
+# START CITATION 
+# link/s below were used to help me generate the following code (excluding values in df based on specific conditions)
+
+# https://stackoverflow.com/questions/71142985/exclude-values-in-df-column
+# https://stackoverflow.com/questions/55330568/how-to-exclude-rows-based-on-multi-column-value-conditions-in-pandas-dataframe
+
+# making new df without the excluded artists
 filter_riaa_five = counts_riaa_five[~counts_riaa_five['artist'].isin(excluded_artists)]
 
 filter_riaa_five = filter_riaa_five.reset_index()
 
 filter_riaa_five = filter_riaa_five.drop(columns = 'index')
-
+# END CITATION
+# ----------------------
 # totaling the RIAA total score
 riaa_score_list = []
 
@@ -1396,6 +1605,7 @@ filter_riaa_five['riaa_score'] = riaa_score_list
 # merging the vmas and amas filtered df 
 merge_1 = pd.merge(filter_vmas_five, filter_amas_five, on = 'artist')
 
+# dropping unnecessary columns
 merge_1 = merge_1.drop(columns = ['award_date_x', 
                                   'vmas_lost', 
                                   'vmas_win', 
@@ -1406,6 +1616,7 @@ merge_1 = merge_1.drop(columns = ['award_date_x',
 # adding the RIAA filtered df to the merged df                                 
 merge_2 = pd.merge(merge_1, filter_riaa_five, on = 'artist')
 
+# dropping unnecessary columns
 merge_2 = merge_2.drop(columns = ['award_date', 
                                         'diamond', 
                                         'gold', 
@@ -1431,28 +1642,28 @@ vmas_max = all_scores_2['vmas_score'].max()
 # new df
 all_scores_scaled = all_scores_2
 
-#Normalizing the vmas column
+# normalizing the vmas column
 all_scores_scaled['vmas_score'] = (all_scores_scaled['vmas_score'] - vmas_min)/(vmas_max - vmas_min)
 
 # min and max of amas
 amas_min = all_scores_2['amas_score'].min()
 amas_max = all_scores_2['amas_score'].max()
 
-# Normalizing the amas column
+# normalizing the amas column
 all_scores_scaled['amas_score'] = (all_scores_scaled['amas_score'] - amas_min)/(amas_max - amas_min)
 
 # min and max of riaa
 riaa_min = all_scores_2['riaa_score'].min()
 riaa_max = all_scores_2['riaa_score'].max()
 
-# Normalizing the riaa column
+# normalizing the riaa column
 all_scores_scaled['riaa_score'] = (all_scores_scaled['riaa_score'] - riaa_min)/(riaa_max - riaa_min)
 
 # min and max of billboard
 billboard_min = all_scores_2['billboard_score'].min()
 billboard_max = all_scores_2['billboard_score'].max()
 
-# Normalizing the billboard column
+# normalizing the billboard column
 all_scores_scaled['billboard_score'] = (all_scores_scaled['billboard_score'] - billboard_min)/(billboard_max - billboard_min)
 
 # creating total scores column
@@ -1500,122 +1711,97 @@ After calculating the scores for each artist based on each feature, I noticed th
 best_new_filtered = best_new_df.iloc[:-4].reset_index()
 best_new_filtered = best_new_filtered.drop(columns = 'index')
 
-# merging music group and gender from artist_info_df 
-artist_info_subset = artist_info_df[['artist','gender', 'music_group']]
-modeling_merge_1 = pd.merge(best_new_filtered, artist_info_subset, on = 'artist', how = 'left')
+#  merginf best new and artist_info_df 
 
-# merging music genre from artist_genres_df
+modeling_merge_1 = pd.merge(best_new_filtered, artist_info_df[['artist','gender', 'music_group']], on = 'artist', how = 'left')
+
+# merging artist genre
 modeling_merge_2 = pd.merge(modeling_merge_1, artist_genres_df, on = 'artist', how = 'left')
-modeling_merge_2
 
-# merging the total success scores
+# merging the total score to the scaled score df
 all_scores_scaled_subset = all_scores_scaled[['artist', 'total_score']]
 final_modeling_merge = pd.merge(modeling_merge_2, all_scores_scaled_subset, on = 'artist', how = 'left')
 
-# generalizing the genre category for easier modeling
-# parent genres to define broader categories
-parent_genre = {
-    'folk': ['folk', 'lilith'], 
-    'jazz': ['jazz'],
-    'soul': ['soul', 'neo soul', 'pop soul'],
-    'pop': ['pop'],
-    'rock': ['rock'],
-    'r&b': ['r&b'],
-    'hip-hop': ['hip-hop', 'freestyle', 'hip hop', 'hip pop'],
-    'rap': ['rap'],
-    'country': ['country'],
-    'metal': ['alternative metal'],
-    'mellow gold': ['mellow gold']
-}
+# getting dummy variables for the 'genre' column
+genre_dummies = final_modeling_merge['genre'].str.get_dummies(sep = ',')
 
-# function made to categorize genres into broader categories
-def categorize_genre(genre):
-    for category, keywords in parent_genre.items():
-        for keyword in keywords:
-            if re.search(r'\b' + re.escape(keyword) + r'\b', genre.lower()):
-                return category
-    return None  # if no match is found
+genre_dummies.columns = genre_dummies.columns.str.strip()
 
-# list to store the most common general genre for each artist
-most_common_genres = []
+genre_dummies.columns = genre_dummies.columns.str.replace('"', '')
 
-# iterating over each row of the df
-for index, row in final_modeling_merge.iterrows():
-    # getting the list of genres associated with the current artist
-    genre_list = row['genre'].split(', ')
-    
-    # grouping genres into broader categories
-    categorized_genres = [categorize_genre(genre) for genre in genre_list]
-    
-    # genres that couldn't be categorized = none
-    categorized_genres = [genre for genre in categorized_genres if genre is not None]
-    
-    # counting occurrences of each categorized genre
-    genre_counts = Counter(categorized_genres)
-    
-    # finding the most common categorized genre and adding to list
-    most_common_genre, count = genre_counts.most_common(1)[0] if genre_counts else (None, 0)
-    most_common_genres.append(most_common_genre)
-
-# adding the most common general genre column to the df
-final_modeling_merge['most_common_general_genre'] = most_common_genres
-
-# dropping artist column since we do not need it for for modeling purposes
-# also droping award_date and original genre column
-final_modeling_merge = final_modeling_merge.drop(columns = ['artist', 'award_date', 'genre'])
-
-# performing one-hot encoding for the 'genre' column
-genre_dummies = final_modeling_merge['most_common_general_genre'].str.get_dummies()
-
-# concatenating the one-hot encoded genre columns with the original DataFrame
+# concatenating the dummy genre columns with the original df
 final_modeling_merge = pd.concat([final_modeling_merge, genre_dummies], axis=1)
 
-# droping the original 'most_common_general_genre' column
-final_modeling_merge.drop(columns=['most_common_general_genre'], inplace=True)
+# dropping the original 'genre' column
+final_modeling_merge.drop(columns=['genre'], inplace=True)
 
-# changing data types, dropping total score column for now
-modeling_df_enc = pd.get_dummies(final_modeling_merge).astype(int)
+# dropping total score for now while I get dummy variables for the other columns
+
+# creating new df
+modeling_df_enc = final_modeling_merge.drop(columns = ['artist','award_date'])
+
+modeling_df_enc = pd.get_dummies(modeling_df_enc).astype(int)
+
 modeling_df_enc = modeling_df_enc.drop(columns = 'total_score')
 
-# stripping ''
+# stripping the df for apostrophes
 modeling_df_enc.columns = modeling_df_enc.columns.str.strip('"')
 
-# adding total score back, renaming to success_score
+# adding back total score column, renaming to success score
 modeling_df_enc['success_score'] = final_modeling_merge['total_score']
 
-# missing values check 
+# checking for missing values
 modeling_df_enc.isna().sum().sum()
 
-# replacing spaces in column headers with '_'
+# replacing any spaces in the header to underscores
 modeling_df_enc.columns = modeling_df_enc.columns.str.replace(' ', '_')
 ```
 
-To predict the scores I tested several regression models. After combining the necessary information, I checked for multicollinearity between the predictors I will be using: music genres, artist gender, and membership in music groups. Multicollinearity occurs when predictors are very correlated with each other, which can affect the reliability of a model’s predictions. To address this, I dropped five predictors with high multicollinearity scores, leaving only the music genres as the predictors for my model.
+To predict the scores I tested three regression models. After combining the necessary information, I checked for multicollinearity between the predictors I will be using: music genres, artist gender, and membership in music groups. Multicollinearity occurs when predictors are very correlated with each other, which can affect the reliability of a model’s predictions. I found that there was high multicollinearity throughout the dataset, especially between the gender and music group features. However, due to the limited amount of predictors and observations being used, I will be keeping all of the predictors for the modeling portion of this project. Therefore please be aware that the model's coefficients may not be reliably interpretable.
 
-I will create and compare the following regression models: Linear Regression, Lasso Regression, Ridge Regression, Support Vector Regression, and Decision Tree Regressor. 
+I will create and compare the following regression models: Linear Regression, Support Vector Regression, and Decision Tree Regressor. 
 
 ## Modeling Performance
 ``` {python}
 #| warning: false
 # predictors
+
+# START CITATION
+
+# Linear Regression Resources:
+    # https://realpython.com/linear-regression-in-python/
+    # https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
+
+# Support Vector Regression Resources:
+    # https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html 
+    # Machine Learning Class, utilized the svm code that was taught and tweaked it to work with svr
+    
+# Decision Tree Regressor Resources:
+    # https://www.geeksforgeeks.org/python-decision-tree-regression-using-sklearn/
+    # https://medium.com/@theclickreader/decision-tree-regression-explained-with-implementation-in-python-1e6e48aa7a47
+      
+# MSE, MAE, R^2 Resource:
+    # MSE: From Machine Learning Class
+    # MAE = https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html
+    # R^2 = https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html
+
+# Cross Validation Resource:
+    # https://www.w3schools.com/python/python_ml_cross_validation.asp
+    
+# pd.Dataframe():
+    # https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
+    
+# Correlation Matrix:
+    # https://stackoverflow.com/questions/65988614/visualizing-a-huge-correlation-matrix-in-python
+
+
 x = modeling_df_enc.drop(columns = ["success_score"],axis=1)
 # target variable
 y = modeling_df_enc['success_score']
 
-# finding vif values to also check for multicollinearity
-vif_vals = pd.DataFrame()
-vif_vals['Variable'] = x.columns
-vif_vals['VIF'] = [variance_inflation_factor(x.values, i) for i in range(x.shape[1])]
-vif_vals[vif_vals['VIF'] > 10] 
-
-# dropping columns from predictors df to decrease overall multicollinearity
-x = x.drop(columns = ['gender_both', 'gender_female', 'gender_male', 'music_group_no', 'music_group_yes'],axis=1)
-
-# checkign vif values one more time 
-vif_vals = pd.DataFrame()
-vif_vals['Variable'] = x.columns
-vif_vals['VIF'] = [variance_inflation_factor(x.values, i) for i in range(x.shape[1])]
-vif_vals[vif_vals['VIF'] > 10]
+# Correlation Matrix to check for multicollinearity
+plt.figure(figsize=(10, 8))
+sns.heatmap(x.corr(), cmap='coolwarm', fmt=".2f")
 
 # standarizing the predictor values
 sc = StandardScaler()
@@ -1630,6 +1816,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,random_state = 42, test
 #| echo : true
 
 # Linear Regression 
+# creating linear regression model
 linear_model = LinearRegression()
 
 # fitting the model
@@ -1640,78 +1827,19 @@ linear_model
 y_pred = linear_model.predict(X_test)
 y_pred
 
-mse = mean_squared_error(y_test, y_pred)
-mae = mean_absolute_error(y_test, y_pred)
-r2 = r2_score(y_test, y_pred)
 
-print('--------------------------')
-print(f'Linear Regression:' )
-print('--------------------------')
-print("Mean Squared Error (MSE) - Linear:", mse)
-print("Mean Absolute Error (MAE) - Linear:", mae)      
-print("R-squared (R2) - Linear:", r2)
+# evaluating performance
+mse = round(mean_squared_error(y_test, y_pred), 3)
+mae = round(mean_absolute_error(y_test, y_pred), 3)
+r2 = round(r2_score(y_test, y_pred), 3)
 
-# Lasso Regression 
+# adding performance scores to a df
+perform_list = [mse, mae, r2]
 
-# testing different alpha values
-alphas = [0.001, 0.01, 0.1, 1, 10, 100]
-
-for i in alphas: 
-    
-    # creating Lasso regression model
-    lasso_model = Lasso(alpha = i)  
-
-    # fitting the model
-    lasso_model.fit(X_train, y_train)
-    
-    # predicting
-    y_pred_lasso = lasso_model.predict(X_test)
-    
-    # calculating evaluation metrics
-    mse_lasso = mean_squared_error(y_test, y_pred_lasso)
-    mae_lasso = mean_absolute_error(y_test, y_pred_lasso)
-    r2_lasso = r2_score(y_test, y_pred_lasso)
-
-# Note, I compared the alpha values and 0.001 performed the best
-print('---------------------------------')
-print(f'Lasso Regression - Alpha = {0.001}:' )
-print('---------------------------------')
-print("Mean Squared Error (MSE) - Lasso:", mse_lasso)
-print("Mean Absolute Error (MAE) - Lasso:", mae_lasso)      
-print("R-squared (R2) - Lasso:", r2_lasso)
+linear_results_df = pd.DataFrame(perform_list, columns = ['Linear Regression'], index = ['Mean Squared Error', 'Mean Average Error', 'R-squared'])
 
 
-
-# Ridge Regression
-
-# testing different alpha values
-alphas = [0.001, 0.01, 0.1, 1, 10, 100]
-
-for i in alphas:
-    
-    # creating the ridge model
-    ridge_model = Ridge(alpha = i)
-    
-    # fitting the model
-    ridge_model.fit(X_train, y_train)
-    
-    # predicting 
-    y_pred_ridge = ridge_model.predict(X_test)
-    
-    # calculating evaluation metrics
-    mse_ridge = mean_squared_error(y_test, y_pred_ridge)
-    mae_ridge = mean_absolute_error(y_test, y_pred_ridge)
-    r2_ridge = r2_score(y_test,y_pred_ridge)
-
-# Note, I compared the alpha values and 0.01 performed the best  
-print('---------------------------------')
-print(f'Ridge Regression - Alpha = {0.01}:' )
-print('---------------------------------')
-print("Mean Squared Error (MSE) - Ridge:", mse_ridge)
-print("Mean Absolute Error (MAE) - Ridge:", mae_ridge)      
-print("R-squared (R2) - Ridge:", r2_ridge)
-
-# Support Vector Regression
+# creating the SVR classifier
 svr_reg = Pipeline([
         ("scaler", StandardScaler()),
         ("svr", SVR(kernel = 'linear', C = 1)),
@@ -1724,42 +1852,64 @@ svr_reg.fit(X_train, y_train)
 y_pred_svr = svr_reg.predict(X_test)
 
 # calculating evaluation metrics
-mse_svr = mean_squared_error(y_test, y_pred_svr)
-mae_svr = mean_absolute_error(y_test, y_pred_svr)
-r2_svr = r2_score(y_test, y_pred_svr)
+mse_svr = round(mean_squared_error(y_test, y_pred_svr), 3)
+mae_svr = round(mean_absolute_error(y_test, y_pred_svr), 3)
+r2_svr = round(r2_score(y_test, y_pred_svr), 3)
 
-print('--------------------------')
-print(f'Support Vector Regression (SVR):' )
-print('--------------------------')
-print("Mean Squared Error (MSE) - SVR:", mse_svr)
-print("Mean Absolute Error (MAE) - SVR:", mae_svr)
-print("R-squared (R2) - SVR:", r2_svr)
+# adding performance scores to a df
+perform_list = [mse_svr, mae_svr, r2_svr]
+
+svr_results_df = pd.DataFrame(perform_list, columns = ['Support Vector Regression'], index = ['Mean Squared Error', 'Mean Average Error', 'R-squared'])
+
 
 # Decision Tree
-tree_clf = DecisionTreeRegressor(random_state = 0, max_depth = 10)
+# creating the regressor
+tree_reg = DecisionTreeRegressor(random_state = 42, max_depth = 5)
 
 # fitting the dt to the trainign data
-tree_clf.fit(X_train, y_train)
+tree_reg.fit(X_train, y_train)
 
 # predicting the target values of the test
-y_pred_tree = tree_clf.predict(X_test)
+y_pred_tree = tree_reg.predict(X_test)
 
 # calculating evaluation metrics
-mse_tree = mean_squared_error(y_test, y_pred_tree)
-mae_tree = mean_absolute_error(y_test, y_pred_tree)
-r2_tree = r2_score(y_test, y_pred_tree)
+mse_tree = round(mean_squared_error(y_test, y_pred_tree), 3)
+mae_tree = round(mean_absolute_error(y_test, y_pred_tree), 3)
+r2_tree = round(r2_score(y_test, y_pred_tree), 3)
 
-print('--------------------------')
-print(f'Decision Tree Regressor:' )
-print('--------------------------')
-print("Mean Squared Error (MSE) - Decision Tree:", mse_tree)
-print("Mean Absolute Error (MAE) - Decision Tree:", mae_tree)
-print("R-squared (R2) - Decision Tree:", r2_tree)
+# adding performance scores to a df
+perform_list = [mse_tree, mae_tree, r2_tree]
+
+tree_results_df = pd.DataFrame(perform_list, columns = ['Decision Tree Regressor'], index = ['Mean Squared Error', 'Mean Average Error', 'R-squared'])
+
+
+# combining the model performances into one df
+
+# joining the linear and svr results df
+combine_performance = linear_results_df.join(svr_results_df)
+
+# adding tree
+combine_performance = combine_performance.join(tree_results_df)
+
+# final joined df
+combine_performance
 ```
 
-After evaluating the performance of each regression model, it is safe to say that the Decision Tree Regressor model outperforms the other. This conclusion is supported by its relatively low Mean Squared Error (MSE) and Mean Absolute Error (MAE) values, suggesting a better predictive accuracy compared to the other models. Furthermore, the Decision Tree Regressor has the highest R-squared value, indicating that it explains a greater proportion of the variance in the target variable. 
+:::{.callout-tip}
+## Tip: Mean Squared What?
 
-However, it is important to recognize that while this model demonstrates the best performance among the models tested, its performance is not that exceptional. This is most likely due to the limited size and simplicity of the data, which provides a constrained number of observations and features. It is reasonable to infer that more data would further strengthen the models’ predictive capabilities.
+Here is a quick lesson on the metrics to evaluate a regression model. 
+
+- Mean squared error (MSE): This metric finds the difference between the actual/true values of data points and the predicted values. The lower the MSE score, the better the model's performance is.   
+
+- Mean Average Error (MAE): This metric calculates the average of all of the differences between the actual/true values and the predicted values. Similar to the MSE metric, the lower the score, the better the model's performance is. 
+
+- R squared: This metric describes the proportion of variance in the model and how strong the relationship is between the independent and the dependent variables. For this metric, a higher score indicates better model performance. 
+:::
+
+After evaluating the performance of each regression model, it is safe to say that the Decision Tree Regressor model outperforms the others. This conclusion is supported by its relatively low Mean Squared Error (MSE) and Mean Absolute Error (MAE) values, suggesting a better predictive accuracy compared to the other models. Furthermore, the Decision Tree Regressor has the highest R-squared value, indicating that it explains a greater proportion of the variance in the target variable. 
+
+However, it is important to recognize that while this model demonstrates the best performance among the models tested, its performance is not that exceptional. This is most likely due to the limited size and simplicity of the data, which provides a constrained number of observations and features. It is reasonable to infer that more data would further strengthen the model's predictive capabilities.
 
 ## Features Impacting Success
 
@@ -1770,16 +1920,20 @@ Utilizing the Decision Tree Regressor, I went ahead and found the top five featu
 #| echo : true 
 
 # finding the features that are the most significant in the decison tree's predictions
+dt_feature_importance = pd.Series(tree_reg.feature_importances_, index = x.columns)
 
-dt_feature_importance = pd.Series(tree_clf.feature_importances_, index = x.columns)
 top_5_dt = dt_feature_importance.nlargest(5)
 
-print("----------------------------------------------")
-print("The Top 5 Feature Importance - Decision Tree")
-print("----------------------------------------------")
-print(top_5_dt)
+top_5_df = pd.DataFrame(top_5_dt).reset_index()
+
+top_5_df.columns = ['feature', 'importance_score']
+
+top_5_df['feature'] = top_5_df['feature'].str.replace('_', ' ')
+
+top_5_df
 ```
 
+Here we can see that dance pop, r&b, country dawn, uk pop, and country are the top five features that have the most significant impact to an artist's success based on the Decision Tree model. 
 # Conclusions
 
 ## Limitations
